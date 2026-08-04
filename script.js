@@ -6,13 +6,18 @@ const megaMenu = document.querySelector("[data-mega-menu]");
 const menuToggle = document.querySelector("[data-menu-toggle]");
 const mobileMenu = document.querySelector("[data-mobile-menu]");
 const carousel = document.querySelector("[data-carousel]");
-const prevButton = document.querySelector("[data-carousel-prev]");
 const nextButton = document.querySelector("[data-carousel-next]");
+const carouselCurrent = document.querySelector("[data-carousel-current]");
+const carouselTotal = document.querySelector("[data-carousel-total]");
+const carouselNextName = document.querySelector("[data-carousel-next-name]");
+const carouselItems = carousel ? [...carousel.querySelectorAll(".collection-item")] : [];
 const toast = document.querySelector("[data-toast]");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 let toastTimer;
 let scrollFrame;
+let carouselFrame;
+let carouselIndex = 0;
 
 function setDropdown(open) {
   if (!dropdownButton || !megaMenu) return;
@@ -95,16 +100,53 @@ document.addEventListener("keydown", (event) => {
   setMobileMenu(false);
 });
 
-function moveCarousel(direction) {
-  if (!carousel) return;
-  const item = carousel.querySelector(".collection-item");
+function getCarouselStep() {
+  if (!carousel || !carouselItems.length) return 0;
   const gap = Number.parseFloat(getComputedStyle(carousel).columnGap) || 0;
-  const distance = (item?.getBoundingClientRect().width || window.innerWidth * 0.7) + gap;
-  carousel.scrollBy({ left: distance * direction, behavior: reducedMotion ? "auto" : "smooth" });
+  return carouselItems[0].getBoundingClientRect().width + gap;
 }
 
-prevButton?.addEventListener("click", () => moveCarousel(-1));
-nextButton?.addEventListener("click", () => moveCarousel(1));
+function updateCarouselUi() {
+  if (!carouselItems.length) return;
+
+  const nextIndex = (carouselIndex + 1) % carouselItems.length;
+  const nextName = carouselItems[nextIndex].querySelector(".collection-overlay h3")?.textContent.trim() || "";
+
+  if (carouselCurrent) carouselCurrent.textContent = String(carouselIndex + 1).padStart(2, "0");
+  if (carouselTotal) carouselTotal.textContent = String(carouselItems.length).padStart(2, "0");
+  if (carouselNextName) carouselNextName.textContent = nextName;
+  nextButton?.setAttribute("aria-label", `Показать следующую коллекцию: ${nextName}`);
+}
+
+function goToCollection(index, behavior = reducedMotion ? "auto" : "smooth") {
+  if (!carousel || !carouselItems.length) return;
+
+  carouselIndex = (index + carouselItems.length) % carouselItems.length;
+  carousel.scrollTo({ left: getCarouselStep() * carouselIndex, behavior });
+  updateCarouselUi();
+}
+
+nextButton?.addEventListener("click", () => goToCollection(carouselIndex + 1));
+
+carousel?.addEventListener(
+  "scroll",
+  () => {
+    if (carouselFrame) return;
+
+    carouselFrame = window.requestAnimationFrame(() => {
+      const step = getCarouselStep();
+      const nextIndex = step ? Math.round(carousel.scrollLeft / step) : 0;
+
+      if (nextIndex !== carouselIndex && nextIndex >= 0 && nextIndex < carouselItems.length) {
+        carouselIndex = nextIndex;
+        updateCarouselUi();
+      }
+
+      carouselFrame = undefined;
+    });
+  },
+  { passive: true },
+);
 
 document.querySelectorAll(".js-placeholder").forEach((element) => {
   element.addEventListener("click", (event) => {
@@ -131,10 +173,12 @@ document.querySelector("[data-year]").textContent = new Date().getFullYear();
 window.addEventListener("scroll", requestScrollUpdate, { passive: true });
 window.addEventListener("resize", () => {
   if (window.innerWidth > 760) setMobileMenu(false);
+  goToCollection(carouselIndex, "auto");
   requestScrollUpdate();
 });
 
 window.requestAnimationFrame(() => {
   document.body.classList.add("is-ready");
+  updateCarouselUi();
   updateScrollState();
 });

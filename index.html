@@ -118,39 +118,14 @@
         </div>
       </section>
 
-      <section class="intro section-pad" id="intro" aria-labelledby="intro-title">
-        <div class="intro__label reveal">
-          <span class="eyebrow">Mabon · Москва</span>
-          <span class="intro__index">01 — 05</span>
-        </div>
-        <div class="intro__statement reveal" data-delay="1">
-          <h2 id="intro-title">Искусство возвращается<br />в повседневность.</h2>
-          <p>
-            Мы создаём фарфоровые скульптуры и предметы для дома на стыке авторской идеи,
-            культурного контекста и современной эстетики.
-          </p>
-        </div>
-      </section>
-
       <section class="collections" id="collections" aria-labelledby="collections-title">
         <div class="section-head section-pad-x reveal">
-          <div>
-            <span class="eyebrow">Три истории в фарфоре</span>
-            <h2 id="collections-title">Коллекции</h2>
-          </div>
-          <div class="carousel-controls" aria-label="Управление каруселью">
-            <button type="button" aria-label="Предыдущая коллекция" data-carousel-prev>
-              <svg aria-hidden="true" viewBox="0 0 32 14"><path d="M32 7H2M8 1 2 7l6 6" /></svg>
-            </button>
-            <button type="button" aria-label="Следующая коллекция" data-carousel-next>
-              <svg aria-hidden="true" viewBox="0 0 32 14"><path d="M0 7h30M24 1l6 6-6 6" /></svg>
-            </button>
-          </div>
+          <h2 id="collections-title">Коллекции</h2>
         </div>
 
         <div class="collection-track" data-carousel>
           <article class="collection-item reveal">
-            <a class="collection-image" href="#story" aria-label="О коллекции Мгновения">
+            <div class="collection-image">
               <img
                 src="assets/hero-moments.webp"
                 alt="Фарфоровые фигуры из коллекции Мгновения"
@@ -158,22 +133,16 @@
                 height="941"
                 loading="lazy"
               />
-              <span class="image-action">Смотреть</span>
-            </a>
-            <div class="collection-meta">
-              <span>01 / 2026</span>
-              <div>
+              <div class="collection-overlay">
+                <span>01 / 2026</span>
                 <h3>Мгновения</h3>
                 <p>Форма как память о близости, тишине и времени рядом.</p>
               </div>
-              <a href="#story" aria-label="Открыть коллекцию Мгновения">
-                <svg aria-hidden="true" viewBox="0 0 32 14"><path d="M0 7h30M24 1l6 6-6 6" /></svg>
-              </a>
             </div>
           </article>
 
           <article class="collection-item reveal" data-delay="1">
-            <a class="collection-image collection-image--light" href="#story" aria-label="О коллекции Motya MABON">
+            <div class="collection-image collection-image--light">
               <img
                 src="assets/collection-forms.webp"
                 alt="Белые фарфоровые объекты с рельефной поверхностью"
@@ -181,22 +150,16 @@
                 height="923"
                 loading="lazy"
               />
-              <span class="image-action">Смотреть</span>
-            </a>
-            <div class="collection-meta">
-              <span>02 / 2026</span>
-              <div>
+              <div class="collection-overlay">
+                <span>02 / 2026</span>
                 <h3>Motya MABON</h3>
                 <p>Пластика движения, застывшая в свете и белом фарфоре.</p>
               </div>
-              <a href="#story" aria-label="Открыть коллекцию Motya MABON">
-                <svg aria-hidden="true" viewBox="0 0 32 14"><path d="M0 7h30M24 1l6 6-6 6" /></svg>
-              </a>
             </div>
           </article>
 
           <article class="collection-item reveal" data-delay="2">
-            <a class="collection-image" href="#story" aria-label="О коллекции Хранители Зимы">
+            <div class="collection-image">
               <img
                 src="assets/mabon-packaging.webp"
                 alt="Коллекционные коробки Mabon в направленном свете"
@@ -204,31 +167,28 @@
                 height="1238"
                 loading="lazy"
               />
-              <span class="image-action">Смотреть</span>
-            </a>
-            <div class="collection-meta">
-              <span>03 / 2026</span>
-              <div>
+              <div class="collection-overlay">
+                <span>03 / 2026</span>
                 <h3>Хранители Зимы</h3>
                 <p>Сезонная история о хрупкости, свете и домашнем ритуале.</p>
               </div>
-              <a href="#story" aria-label="Открыть коллекцию Хранители Зимы">
-                <svg aria-hidden="true" viewBox="0 0 32 14"><path d="M0 7h30M24 1l6 6-6 6" /></svg>
-              </a>
             </div>
           </article>
         </div>
-      </section>
 
-      <section class="manifesto" id="story" aria-labelledby="manifesto-title">
-        <svg class="harmonic harmonic--manifesto" aria-hidden="true" viewBox="0 0 1440 900" preserveAspectRatio="none">
-          <path d="M-60 120C210-20 450 900 760 760S1030-90 1270 130 1510 710 1220 850 690 30 370 190-10 900 260 930" />
-          <path d="M60-60C430 140 520 760 920 820s550-510 280-720S450 210 500 520s500 400 880 120" />
-        </svg>
-        <div class="manifesto__content reveal">
-          <span class="eyebrow">Манифест</span>
-          <h2 id="manifesto-title">Фарфор — это форма,<br />в которой звучит пустота.</h2>
-          <p>Не сам звук, а пространство, вибрирующее изнутри.</p>
+        <div class="collection-navigator section-pad-x reveal">
+          <div class="collection-count" aria-label="Текущая коллекция">
+            <span data-carousel-current>01</span>
+            <i></i>
+            <span data-carousel-total>03</span>
+          </div>
+          <button class="collection-next" type="button" aria-label="Показать следующую коллекцию" data-carousel-next>
+            <span>
+              <small>Следующая коллекция</small>
+              <strong data-carousel-next-name>Motya MABON</strong>
+            </span>
+            <svg aria-hidden="true" viewBox="0 0 42 16"><path d="M0 8h40M33 1l7 7-7 7" /></svg>
+          </button>
         </div>
       </section>
 
@@ -245,7 +205,6 @@
         </div>
 
         <div class="about__copy reveal" data-delay="1">
-          <span class="eyebrow">О Mabon</span>
           <h2 id="about-title">Традиция,<br />продолженная<br /><em>сегодня.</em></h2>
           <p>
             Каждый объект проходит путь от гипсовой формы и литья до обжига и ручной росписи.
@@ -256,13 +215,6 @@
             <svg aria-hidden="true" viewBox="0 0 32 14"><path d="M0 7h30M24 1l6 6-6 6" /></svg>
           </a>
         </div>
-
-        <ol class="process-list reveal" data-delay="2">
-          <li><span>01</span><strong>Форма</strong></li>
-          <li><span>02</span><strong>Литьё</strong></li>
-          <li><span>03</span><strong>Обжиг</strong></li>
-          <li><span>04</span><strong>Роспись</strong></li>
-        </ol>
       </section>
 
       <section class="atelier" id="b2b" aria-labelledby="atelier-title">
