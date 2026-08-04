@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Mabon — коллекционные фарфоровые скульптуры и предметы для дома. Искусство, с которым можно жить."
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Mabon — коллекционный фарфор</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect width=%2264%22 height=%2264%22 fill=%22%23ffffff%22/><text x=%2210%22 y=%2245%22 font-size=%2243%22 font-family=%22serif%22>M</text></svg>" />
+    <link rel="preload" as="image" href="assets/hero-moments.webp" fetchpriority="high" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Перейти к содержанию</a>
+
+    <header class="site-header" data-header>
+      <div class="header-progress" data-progress></div>
+      <nav class="desktop-nav desktop-nav--left" aria-label="Основная навигация">
+        <div class="nav-dropdown" data-dropdown>
+          <button class="nav-link nav-link--button" type="button" aria-expanded="false" data-dropdown-button>
+            Коллекции
+            <svg aria-hidden="true" viewBox="0 0 12 7">
+              <path d="M1 1l5 5 5-5" />
+            </svg>
+          </button>
+        </div>
+        <a class="nav-link" href="#collections">Каталог</a>
+        <a class="nav-link" href="#about">О нас</a>
+      </nav>
+
+      <a class="wordmark" href="#top" aria-label="Mabon, на главную">Mabon</a>
+
+      <nav class="desktop-nav desktop-nav--right" aria-label="Дополнительная навигация">
+        <a class="nav-link" href="#b2b">B2B</a>
+        <a class="nav-link" href="#contact">Контакты</a>
+        <button class="icon-link js-placeholder" type="button" aria-label="Личный кабинет">
+          <svg aria-hidden="true" viewBox="0 0 24 24">
+            <circle cx="12" cy="8" r="3.75" />
+            <path d="M5.75 20c.45-4 2.55-6 6.25-6s5.8 2 6.25 6" />
+          </svg>
+        </button>
+        <button class="icon-link js-placeholder bag-link" type="button" aria-label="Корзина, 0 товаров">
+          <svg aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M5.5 8.5h13l-1 11h-11l-1-11Z" />
+            <path d="M9 9V6.5a3 3 0 0 1 6 0V9" />
+          </svg>
+          <span>0</span>
+        </button>
+      </nav>
+
+      <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" data-menu-toggle>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="mega-menu" data-mega-menu>
+        <div class="mega-menu__intro">
+          <span class="eyebrow">Коллекции Mabon</span>
+          <p>Фарфор как форма памяти, движения и личного пространства.</p>
+        </div>
+        <div class="mega-menu__links">
+          <a href="#collections"><span>01</span> Мгновения</a>
+          <a href="#collections"><span>02</span> Motya MABON</a>
+          <a href="#collections"><span>03</span> Хранители Зимы</a>
+        </div>
+        <a class="mega-menu__all" href="#collections">
+          Смотреть все
+          <svg aria-hidden="true" viewBox="0 0 24 12"><path d="M0 6h22M17 1l5 5-5 5" /></svg>
+        </a>
+      </div>
+    </header>
+
+    <div class="mobile-menu" aria-hidden="true" data-mobile-menu>
+      <nav aria-label="Мобильная навигация">
+        <a href="#collections"><span>01</span> Коллекции</a>
+        <a href="#collections"><span>02</span> Каталог</a>
+        <a href="#about"><span>03</span> О нас</a>
+        <a href="#b2b"><span>04</span> B2B</a>
+        <a href="#contact"><span>05</span> Контакты</a>
+      </nav>
+      <div class="mobile-menu__foot">
+        <a href="tel:+79024713728">+7 (902) 471-37-28</a>
+        <a href="mailto:ceo@farfor-pro.com">ceo@farfor-pro.com</a>
+      </div>
+    </div>
+
+    <main id="main">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <img
+          class="hero__image"
+          src="assets/hero-moments.webp"
+          alt="Фарфоровые скульптуры Mabon в тёплом вечернем свете"
+          width="1672"
+          height="941"
+          fetchpriority="high"
+        />
+        <div class="hero__veil"></div>
+
+        <svg class="harmonic harmonic--hero" aria-hidden="true" viewBox="0 0 760 900" preserveAspectRatio="none">
+          <path d="M-40 95C180 10 290 770 520 810S740 360 590 150 180 0 60 400 230 920 620 700" />
+          <path d="M20-30C370 100 650 210 650 470S400 930 170 750 110 260 330 120 760 240 700 700" />
+        </svg>
+
+        <div class="hero__content">
+          <p class="hero__eyebrow">Новая коллекция · 2026</p>
+          <h1 id="hero-title">
+            Мгновения,<br />
+            <span>которые остаются</span>
+          </h1>
+          <p class="hero__copy">Коллекционный фарфор, созданный быть частью личной истории.</p>
+          <a class="text-cta text-cta--light" href="#collections">
+            Смотреть коллекцию
+            <svg aria-hidden="true" viewBox="0 0 32 14"><path d="M0 7h30M24 1l6 6-6 6" /></svg>
+          </a>
+        </div>
+      </section>
+
+      <section class="intro section-pad" id="intro" aria-labelledby="intro-title">
+        <div class="intro__label reveal">
+          <span class="eyebrow">Mabon · Москва</span>
+          <span class="intro__index">01 — 05</span>
+        </div>
+        <div class="intro__statement reveal" data-delay="1">
+          <h2 id="intro-title">Искусство возвращается<br />в повседневность.</h2>
+          <p>
+            Мы создаём фарфоровые скульптуры и предметы для дома на стыке авторской идеи,
+            культурного контекста и современной эстетики.
+          </p>
+        </div>
+      </section>
+
+      <section class="collections" id="collections" aria-labelledby="collections-title">
+        <div class="section-head section-pad-x reveal">
+          <div>
+            <span class="eyebrow">Три истории в фарфоре</span>
+            <h2 id="collections-title">Коллекции</h2>
+          </div>
+          <div class="carousel-controls" aria-label="Управление каруселью">
+            <button type="button" aria-label="Предыдущая коллекция" data-carousel-prev>
+              <svg aria-hidden="true" viewBox="0 0 32 14"><path d="M32 7H2M8 1 2 7l6 6" /></svg>
+            </button>
+            <button type="button" aria-label="Следующая коллекция" data-carousel-next>
+              <svg aria-hidden="true" viewBox="0 0 32 14"><path d="M0 7h30M24 1l6 6-6 6" /></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="collection-track" data-carousel>
+          <article class="collection-item reveal">
+            <a class="collection-image" href="#story" aria-label="О коллекции Мгновения">
+              <img
+                src="assets/hero-moments.webp"
+                alt="Фарфоровые фигуры из коллекции Мгновения"
+                width="1672"
+                height="941"
+                loading="lazy"
+              />
+              <span class="image-action">Смотреть</span>
+            </a>
+            <div class="collection-meta">
+              <span>01 / 2026</span>
+              <div>
+                <h3>Мгновения</h3>
+                <p>Форма как память о близости, тишине и времени рядом.</p>
+              </div>
+              <a href="#story" aria-label="Открыть коллекцию Мгновения">
+                <svg aria-hidden="true" viewBox="0 0 32 14"><path d="M0 7h30M24 1l6 6-6 6" /></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="collection-item reveal" data-delay="1">
+            <a class="collection-image collection-image--light" href="#story" aria-label="О коллекции Motya MABON">
+              <img
+                src="assets/collection-forms.webp"
+                alt="Белые фарфоровые объекты с рельефной поверхностью"
+                width="1704"
+                height="923"
+                loading="lazy"
+              />
+              <span class="image-action">Смотреть</span>
+            </a>
+            <div class="collection-meta">
+              <span>02 / 2026</span>
+              <div>
+                <h3>Motya MABON</h3>
+                <p>Пластика движения, застывшая в свете и белом фарфоре.</p>
+              </div>
+              <a href="#story" aria-label="Открыть коллекцию Motya MABON">
+                <svg aria-hidden="true" viewBox="0 0 32 14"><path d="M0 7h30M24 1l6 6-6 6" /></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="collection-item reveal" data-delay="2">
+            <a class="collection-image" href="#story" aria-label="О коллекции Хранители Зимы">
+              <img
+                src="assets/mabon-packaging.webp"
+                alt="Коллекционные коробки Mabon в направленном свете"
+                width="2200"
+                height="1238"
+                loading="lazy"
+              />
+              <span class="image-action">Смотреть</span>
+            </a>
+            <div class="collection-meta">
+              <span>03 / 2026</span>
+              <div>
+                <h3>Хранители Зимы</h3>
+                <p>Сезонная история о хрупкости, свете и домашнем ритуале.</p>
+              </div>
+              <a href="#story" aria-label="Открыть коллекцию Хранители Зимы">
+                <svg aria-hidden="true" viewBox="0 0 32 14"><path d="M0 7h30M24 1l6 6-6 6" /></svg>
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="manifesto" id="story" aria-labelledby="manifesto-title">
+        <svg class="harmonic harmonic--manifesto" aria-hidden="true" viewBox="0 0 1440 900" preserveAspectRatio="none">
+          <path d="M-60 120C210-20 450 900 760 760S1030-90 1270 130 1510 710 1220 850 690 30 370 190-10 900 260 930" />
+          <path d="M60-60C430 140 520 760 920 820s550-510 280-720S450 210 500 520s500 400 880 120" />
+        </svg>
+        <div class="manifesto__content reveal">
+          <span class="eyebrow">Манифест</span>
+          <h2 id="manifesto-title">Фарфор — это форма,<br />в которой звучит пустота.</h2>
+          <p>Не сам звук, а пространство, вибрирующее изнутри.</p>
+        </div>
+      </section>
+
+      <section class="about section-pad" id="about" aria-labelledby="about-title">
+        <div class="about__media reveal">
+          <img
+            src="assets/craft-process.webp"
+            alt="Мастер вручную работает над фарфоровой скульптурой Mabon"
+            width="765"
+            height="1080"
+            loading="lazy"
+          />
+          <span>Ручная работа · Москва</span>
+        </div>
+
+        <div class="about__copy reveal" data-delay="1">
+          <span class="eyebrow">О Mabon</span>
+          <h2 id="about-title">Традиция,<br />продолженная<br /><em>сегодня.</em></h2>
+          <p>
+            Каждый объект проходит путь от гипсовой формы и литья до обжига и ручной росписи.
+            Точность производства сохраняет живую энергию материала и авторского жеста.
+          </p>
+          <a class="text-cta" href="#contact">
+            Узнать о бренде
+            <svg aria-hidden="true" viewBox="0 0 32 14"><path d="M0 7h30M24 1l6 6-6 6" /></svg>
+          </a>
+        </div>
+
+        <ol class="process-list reveal" data-delay="2">
+          <li><span>01</span><strong>Форма</strong></li>
+          <li><span>02</span><strong>Литьё</strong></li>
+          <li><span>03</span><strong>Обжиг</strong></li>
+          <li><span>04</span><strong>Роспись</strong></li>
+        </ol>
+      </section>
+
+      <section class="atelier" id="b2b" aria-labelledby="atelier-title">
+        <img
+          src="assets/collection-installation.webp"
+          alt="Витрина с объектами и графикой Mabon"
+          width="2200"
+          height="1238"
+          loading="lazy"
+        />
+        <div class="atelier__veil"></div>
+        <div class="atelier__copy reveal">
+          <span class="eyebrow">Для пространств и особых событий</span>
+          <h2 id="atelier-title">Индивидуальные<br />и B2B-проекты</h2>
+          <p>Лимитированные серии, персонализация и объекты, созданные для конкретного места.</p>
+          <a class="text-cta text-cta--light" href="mailto:ceo@farfor-pro.com?subject=B2B%20проект%20Mabon">
+            Обсудить проект
+            <svg aria-hidden="true" viewBox="0 0 32 14"><path d="M0 7h30M24 1l6 6-6 6" /></svg>
+          </a>
+        </div>
+      </section>
+
+      <section class="contact section-pad" id="contact" aria-labelledby="contact-title">
+        <div class="contact__intro reveal">
+          <span class="eyebrow">Контакты</span>
+          <h2 id="contact-title">Продолжим<br /><em>разговор.</em></h2>
+        </div>
+        <div class="contact__details reveal" data-delay="1">
+          <div>
+            <span>Шоурум</span>
+            <p>Москва,<br />Нахимовский проспект, 24</p>
+          </div>
+          <div>
+            <span>Связаться</span>
+            <a href="tel:+79024713728">+7 (902) 471-37-28</a>
+            <a href="mailto:ceo@farfor-pro.com">ceo@farfor-pro.com</a>
+          </div>
+          <div>
+            <span>Социальные сети</span>
+            <a class="js-placeholder" href="#">Telegram ↗</a>
+            <a class="js-placeholder" href="#">VK ↗</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <a class="footer__wordmark" href="#top">Mabon</a>
+      <div class="footer__meta">
+        <span>Фарфор, который делает повседневность искусством.</span>
+        <span>© <span data-year></span> Mabon</span>
+        <div>
+          <a class="js-placeholder" href="#">Политика конфиденциальности</a>
+          <a class="js-placeholder" href="#">Публичная оферта</a>
+        </div>
+      </div>
+    </footer>
+
+    <div class="toast" role="status" aria-live="polite" data-toast>
+      <span>Раздел будет доступен в полной версии сайта</span>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
