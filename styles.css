@@ -745,23 +745,35 @@ img {
   grid-template-columns: repeat(12, minmax(0, 1fr));
   gap: 0 clamp(12px, 2vw, 32px);
   align-items: center;
+  overflow: hidden;
   background: var(--stone);
   color: var(--white);
 }
 
+.about__content {
+  z-index: 1;
+  grid-column: 1 / span 5;
+  grid-row: 1;
+  align-self: center;
+  padding-right: clamp(18px, 2.4vw, 38px);
+}
+
 .about__media {
+  --frame: clamp(10px, 1.1vw, 16px);
   position: relative;
-  grid-column: 8 / -1;
+  grid-column: 6 / -1;
   grid-row: 1;
   width: 100%;
-  max-width: 620px;
-  justify-self: end;
+  align-self: center;
+  padding: var(--frame);
   overflow: hidden;
+  background: var(--white);
 }
 
 .about__media img {
   width: 100%;
-  height: auto;
+  height: clamp(460px, 42vw, 620px);
+  object-fit: cover;
   transition: transform 1.2s var(--ease), filter 600ms ease;
 }
 
@@ -773,63 +785,64 @@ img {
 .about__media span {
   position: absolute;
   z-index: 1;
-  top: 0;
-  left: 14px;
-  padding-top: 18px;
-  color: var(--stone);
+  right: calc(var(--frame) + 10px);
+  bottom: calc(var(--frame) + 10px);
+  color: var(--white);
   font-size: 10px;
   letter-spacing: 0.1em;
+  text-shadow: 0 1px 10px rgb(11 10 10 / 50%);
   text-transform: uppercase;
-  transform: rotate(180deg);
-  writing-mode: vertical-rl;
+  writing-mode: horizontal-tb;
 }
 
-.about__copy {
-  z-index: 1;
-  grid-column: 1 / span 6;
-  grid-row: 1;
-  align-self: center;
+.about__heading {
+  pointer-events: none;
 }
 
-.about__copy h2 {
+.about__heading h2 {
   margin: 0;
-  font-size: clamp(49px, 6vw, 88px);
+  font-size: clamp(40px, 4.5vw, 68px);
   font-weight: 300;
   letter-spacing: -0.055em;
-  line-height: 0.91;
+  line-height: 0.96;
 }
 
-.about__copy h2 span {
+.about__heading h2 span {
   display: block;
 }
 
-.about__copy h2 span:first-child {
-  margin-bottom: 0.12em;
-  font-size: 0.66em;
-  letter-spacing: -0.035em;
+.about__heading h2 span:first-child {
+  margin-bottom: 0;
+  font-size: inherit;
+  letter-spacing: inherit;
 }
 
-.about__copy h2 em {
+.about__heading h2 span:nth-child(2) {
+  width: auto;
+}
+
+.about__heading h2 em {
   display: block;
-  margin: 0.12em 0 0 17%;
-  font-family: var(--font-serif);
-  font-size: 1.08em;
-  font-style: italic;
-  font-weight: 400;
-  letter-spacing: -0.04em;
-  line-height: 1;
+  width: auto;
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  font-style: normal;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
 }
 
-.about__copy p {
-  max-width: 430px;
-  margin: clamp(46px, 5vw, 72px) 0 22px 17%;
-  font-family: var(--font-serif);
-  font-size: clamp(18px, 1.55vw, 23px);
-  line-height: 1.55;
+.about__body {
+  max-width: 490px;
+  margin-top: 34px;
 }
 
-.about__copy .text-cta {
-  margin-left: 17%;
+.about__body p {
+  margin: 0 0 18px;
+  font-family: var(--font-serif);
+  font-size: clamp(18px, 1.5vw, 23px);
+  line-height: 1.5;
 }
 
 .atelier {
@@ -1209,57 +1222,54 @@ img {
   }
 
   .about {
+    min-height: auto;
     grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    overflow: hidden;
   }
 
+  .about__content,
   .about__media,
-  .about__copy {
+  .about__heading,
+  .about__body {
     grid-column: 1;
     min-width: 0;
     width: 100%;
   }
 
-  .about__copy {
+  .about__content {
     grid-row: 1;
-    padding: 0 0 68px;
+    padding-right: 0;
   }
 
-  .about__copy h2 {
-    font-size: clamp(48px, 13.5vw, 62px);
+  .about__heading h2 span:nth-child(2) {
+    width: auto;
   }
 
-  .about__copy h2 em {
-    margin-left: 11%;
-  }
-
-  .about__copy p {
-    max-width: 510px;
-    margin: 42px 0 22px;
-  }
-
-  .about__copy .text-cta {
+  .about__heading h2 em {
     margin-left: 0;
   }
 
   .about__media {
     grid-row: 2;
-    max-width: none;
-    justify-self: stretch;
-    overflow: visible;
+    width: calc(100% + (var(--gutter) * 2));
+    margin: 44px calc(var(--gutter) * -1) 0;
+    overflow: hidden;
   }
 
   .about__media img {
-    height: auto;
+    height: min(78vw, 360px);
+    object-fit: cover;
   }
 
   .about__media span {
-    position: static;
-    display: block;
-    margin-top: 13px;
-    padding-top: 0;
-    color: var(--white);
-    transform: none;
-    writing-mode: horizontal-tb;
+    right: calc(var(--frame) + 10px);
+    bottom: calc(var(--frame) + 10px);
+  }
+
+  .about__body {
+    max-width: 510px;
+    margin-top: 34px;
   }
 
   .atelier {
