@@ -7,11 +7,17 @@
       name="description"
       content="Mabon — коллекционные фарфоровые скульптуры и предметы для дома. Искусство, с которым можно жить."
     />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#fbf4ed" />
     <title>Mabon — коллекционный фарфор</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect width=%2264%22 height=%2264%22 fill=%22%23ffffff%22/><text x=%2210%22 y=%2245%22 font-size=%2243%22 font-family=%22serif%22>M</text></svg>" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect width=%2264%22 height=%2264%22 fill=%22%23fbf4ed%22/><text x=%2210%22 y=%2245%22 font-size=%2243%22 font-family=%22serif%22>M</text></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&amp;display=swap"
+      rel="stylesheet"
+    />
     <link rel="preload" as="image" href="assets/hero-moments.webp" fetchpriority="high" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=20260808-5" />
   </head>
   <body>
     <a class="skip-link" href="#main">Перейти к содержанию</a>
@@ -115,11 +121,7 @@
         </div>
       </section>
 
-      <section class="collections" id="collections" aria-labelledby="collections-title">
-        <div class="section-head section-pad-x reveal">
-          <h2 id="collections-title">Коллекции</h2>
-        </div>
-
+      <section class="collections" id="collections" aria-label="Коллекции">
         <div class="collection-track" data-carousel>
           <article class="collection-item reveal">
             <div class="collection-image">
@@ -165,7 +167,6 @@
                 loading="lazy"
               />
               <div class="collection-overlay">
-                <span>03 / 2026</span>
                 <h3>Хранители Зимы</h3>
                 <p>Сезонная история о хрупкости, свете и домашнем ритуале.</p>
               </div>
@@ -179,15 +180,10 @@
             <i></i>
             <span data-carousel-total>03</span>
           </div>
-          <button class="collection-next" type="button" aria-label="Показать следующую коллекцию" data-carousel-next>
-            <span>
-              <small>Следующая коллекция</small>
-              <strong data-carousel-next-name>Motya MABON</strong>
-            </span>
-            <svg aria-hidden="true" viewBox="0 0 42 16"><path d="M0 8h40M33 1l7 7-7 7" /></svg>
-          </button>
         </div>
       </section>
+
+      <div class="section-divider" aria-hidden="true"></div>
 
       <section class="about section-pad" id="about" aria-labelledby="about-title">
         <div class="about__content">

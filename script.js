@@ -6,10 +6,8 @@ const megaMenu = document.querySelector("[data-mega-menu]");
 const menuToggle = document.querySelector("[data-menu-toggle]");
 const mobileMenu = document.querySelector("[data-mobile-menu]");
 const carousel = document.querySelector("[data-carousel]");
-const nextButton = document.querySelector("[data-carousel-next]");
 const carouselCurrent = document.querySelector("[data-carousel-current]");
 const carouselTotal = document.querySelector("[data-carousel-total]");
-const carouselNextName = document.querySelector("[data-carousel-next-name]");
 const carouselItems = carousel ? [...carousel.querySelectorAll(".collection-item")] : [];
 const toast = document.querySelector("[data-toast]");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -109,13 +107,8 @@ function getCarouselStep() {
 function updateCarouselUi() {
   if (!carouselItems.length) return;
 
-  const nextIndex = (carouselIndex + 1) % carouselItems.length;
-  const nextName = carouselItems[nextIndex].querySelector(".collection-overlay h3")?.textContent.trim() || "";
-
   if (carouselCurrent) carouselCurrent.textContent = String(carouselIndex + 1).padStart(2, "0");
   if (carouselTotal) carouselTotal.textContent = String(carouselItems.length).padStart(2, "0");
-  if (carouselNextName) carouselNextName.textContent = nextName;
-  nextButton?.setAttribute("aria-label", `Показать следующую коллекцию: ${nextName}`);
 }
 
 function goToCollection(index, behavior = reducedMotion ? "auto" : "smooth") {
@@ -125,8 +118,6 @@ function goToCollection(index, behavior = reducedMotion ? "auto" : "smooth") {
   carousel.scrollTo({ left: getCarouselStep() * carouselIndex, behavior });
   updateCarouselUi();
 }
-
-nextButton?.addEventListener("click", () => goToCollection(carouselIndex + 1));
 
 carousel?.addEventListener(
   "scroll",
