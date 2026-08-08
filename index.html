@@ -17,7 +17,7 @@
       rel="stylesheet"
     />
     <link rel="preload" as="image" href="assets/hero-moments.webp" fetchpriority="high" />
-    <link rel="stylesheet" href="styles.css?v=20260808-7" />
+    <link rel="stylesheet" href="styles.css?v=20260808-10" />
   </head>
   <body>
     <a class="skip-link" href="#main">Перейти к содержанию</a>
@@ -236,12 +236,6 @@
 
     <footer class="footer" id="contact" aria-label="Контакты Mabon">
       <div class="footer__callback">
-        <div class="footer__callback-copy">
-          <span class="footer__eyebrow">Обратная связь</span>
-          <h2>Свяжемся удобным<br />для вас способом</h2>
-          <p>Выберите email или телефон и оставьте контакт — команда Mabon ответит вам.</p>
-        </div>
-
         <form class="callback-form" data-callback-form>
           <fieldset class="callback-form__methods">
             <legend>Как с вами связаться?</legend>
@@ -275,6 +269,12 @@
           </div>
           <p class="callback-form__status" role="status" aria-live="polite" data-callback-status></p>
         </form>
+
+        <div class="footer__account footer__account--featured">
+          <span>Личный кабинет</span>
+          <p>Сохраняйте избранное и следите за статусом заказов.</p>
+          <a class="js-placeholder" href="#" data-toast-message="Регистрация будет доступна в полной версии сайта">Зарегистрироваться ↗</a>
+        </div>
       </div>
 
       <div class="footer__directory">
@@ -288,15 +288,24 @@
           <a class="footer__mark" href="#top" aria-label="Mabon, на главную">Mabon</a>
         </div>
 
-        <div class="footer__account">
-          <span>Личный кабинет</span>
-          <p>Сохраняйте избранное и следите за статусом заказов.</p>
-          <a class="js-placeholder" href="#" data-toast-message="Регистрация будет доступна в полной версии сайта">Зарегистрироваться ↗</a>
-        </div>
-
         <div class="footer__socials" aria-label="Социальные сети">
-          <a class="js-placeholder" href="#" data-toast-message="Telegram будет доступен в полной версии сайта">TG ↗</a>
-          <a class="js-placeholder" href="#" data-toast-message="VK будет доступен в полной версии сайта">VK ↗</a>
+          <a class="js-placeholder" href="#" aria-label="Telegram" data-toast-message="Telegram будет доступен в полной версии сайта">
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <path fill="currentColor" d="M9.8 15.5 9.4 20c.55 0 .8-.24 1.08-.53l2.59-2.48 5.37 3.93c.98.55 1.68.26 1.95-.91L23.92 3.5c.36-1.44-.55-2.1-1.49-1.75L1.7 9.75c-1.42.55-1.4 1.33-.24 1.68l5.3 1.65L19.05 5.3c.58-.35 1.11-.16.68.22Z" />
+            </svg>
+          </a>
+          <a class="js-placeholder" href="#" aria-label="Instagram" data-toast-message="Instagram будет доступен в полной версии сайта">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <rect x="3" y="3" width="18" height="18" rx="5" />
+              <circle cx="12" cy="12" r="4.25" />
+              <circle cx="17.4" cy="6.7" r="1" fill="currentColor" stroke="none" />
+            </svg>
+          </a>
+          <a class="js-placeholder" href="#" aria-label="Pinterest" data-toast-message="Pinterest будет доступен в полной версии сайта">
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <path fill="currentColor" d="M12 2a10 10 0 0 0-3.64 19.31c-.08-1.64-.02-3.6.41-5.46l1.29-5.44s-.33-.66-.33-1.63c0-1.52.89-2.66 1.98-2.66.93 0 1.38.7 1.38 1.55 0 .94-.59 2.34-.9 3.64-.25 1.09.55 1.98 1.63 1.98 1.95 0 3.45-2.06 3.45-5.03 0-2.63-1.89-4.47-4.58-4.47-3.12 0-4.95 2.34-4.95 4.76 0 .94.36 1.95.81 2.5.09.11.1.2.07.31l-.3 1.27c-.05.2-.17.24-.39.15-1.46-.68-2.37-2.8-2.37-4.51 0-3.68 2.67-7.06 7.7-7.06 4.05 0 7.2 2.88 7.2 6.73 0 4.02-2.53 7.25-6.05 7.25-1.18 0-2.29-.61-2.67-1.34l-.73 2.76c-.26 1.01-.98 2.28-1.46 3.05A10 10 0 1 0 12 2Z" />
+            </svg>
+          </a>
         </div>
       </div>
 
