@@ -17,7 +17,7 @@
       rel="stylesheet"
     />
     <link rel="preload" as="image" href="assets/hero-moments.webp" fetchpriority="high" />
-    <link rel="stylesheet" href="styles.css?v=20260808-5" />
+    <link rel="stylesheet" href="styles.css?v=20260808-7" />
   </head>
   <body>
     <a class="skip-link" href="#main">Перейти к содержанию</a>
@@ -88,8 +88,8 @@
         <a href="#contact"><span>05</span> Контакты</a>
       </nav>
       <div class="mobile-menu__foot">
-        <a href="tel:+79024713728">+7 (902) 471-37-28</a>
-        <a href="mailto:ceo@farfor-pro.com">ceo@farfor-pro.com</a>
+        <a href="tel:+79268635973">+7 (926) 863-59-73</a>
+        <a href="mailto:info@farfor-pro.com">info@farfor-pro.com</a>
       </div>
     </div>
 
@@ -228,26 +228,75 @@
         <div class="atelier__copy reveal">
           <h2 id="atelier-title">Индивидуальные<br />и B2B-проекты</h2>
           <p>Лимитированные серии, персонализация и объекты, созданные для конкретного места.</p>
-          <a class="text-cta text-cta--light" href="mailto:ceo@farfor-pro.com?subject=B2B%20проект%20Mabon">Обсудить проект</a>
+          <a class="text-cta text-cta--light" href="mailto:info@farfor-pro.com?subject=B2B%20проект%20Mabon">Обсудить проект</a>
         </div>
       </section>
 
     </main>
 
     <footer class="footer" id="contact" aria-label="Контакты Mabon">
-      <div class="footer__contacts">
-        <div>
-          <span>Связаться</span>
-          <a href="tel:+79024713728">+7 (902) 471-37-28</a>
-          <a href="mailto:ceo@farfor-pro.com">ceo@farfor-pro.com</a>
+      <div class="footer__callback">
+        <div class="footer__callback-copy">
+          <span class="footer__eyebrow">Обратная связь</span>
+          <h2>Свяжемся удобным<br />для вас способом</h2>
+          <p>Выберите email или телефон и оставьте контакт — команда Mabon ответит вам.</p>
         </div>
+
+        <form class="callback-form" data-callback-form>
+          <fieldset class="callback-form__methods">
+            <legend>Как с вами связаться?</legend>
+            <div>
+              <label>
+                <input type="radio" name="callback-method" value="email" checked />
+                <span>Email</span>
+              </label>
+              <label>
+                <input type="radio" name="callback-method" value="phone" />
+                <span>По телефону</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="callback-form__entry">
+            <label class="visually-hidden" for="callback-contact" data-callback-label>Электронная почта</label>
+            <input
+              id="callback-contact"
+              name="contact"
+              type="email"
+              autocomplete="email"
+              placeholder="Ваш email"
+              required
+              data-callback-input
+            />
+            <button type="submit">
+              Отправить
+              <span aria-hidden="true">↗</span>
+            </button>
+          </div>
+          <p class="callback-form__status" role="status" aria-live="polite" data-callback-status></p>
+        </form>
+      </div>
+
+      <div class="footer__directory">
+        <div class="footer__contact-block">
+          <span>Контакты</span>
+          <a href="tel:+79268635973">+7 (926) 863-59-73</a>
+          <a href="mailto:info@farfor-pro.com">info@farfor-pro.com</a>
+        </div>
+
         <div class="footer__brand">
           <a class="footer__mark" href="#top" aria-label="Mabon, на главную">Mabon</a>
         </div>
-        <div>
-          <span>Социальные сети</span>
-          <a class="js-placeholder" href="#">Telegram ↗</a>
-          <a class="js-placeholder" href="#">VK ↗</a>
+
+        <div class="footer__account">
+          <span>Личный кабинет</span>
+          <p>Сохраняйте избранное и следите за статусом заказов.</p>
+          <a class="js-placeholder" href="#" data-toast-message="Регистрация будет доступна в полной версии сайта">Зарегистрироваться ↗</a>
+        </div>
+
+        <div class="footer__socials" aria-label="Социальные сети">
+          <a class="js-placeholder" href="#" data-toast-message="Telegram будет доступен в полной версии сайта">TG ↗</a>
+          <a class="js-placeholder" href="#" data-toast-message="VK будет доступен в полной версии сайта">VK ↗</a>
         </div>
       </div>
 
@@ -261,9 +310,9 @@
     </footer>
 
     <div class="toast" role="status" aria-live="polite" data-toast>
-      <span>Раздел будет доступен в полной версии сайта</span>
+      <span data-toast-message>Раздел будет доступен в полной версии сайта</span>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=20260808-6"></script>
   </body>
 </html>

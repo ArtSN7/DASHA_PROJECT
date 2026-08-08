@@ -10,6 +10,12 @@ const carouselCurrent = document.querySelector("[data-carousel-current]");
 const carouselTotal = document.querySelector("[data-carousel-total]");
 const carouselItems = carousel ? [...carousel.querySelectorAll(".collection-item")] : [];
 const toast = document.querySelector("[data-toast]");
+const toastMessage = toast?.querySelector("[data-toast-message]");
+const callbackForm = document.querySelector("[data-callback-form]");
+const callbackInput = document.querySelector("[data-callback-input]");
+const callbackLabel = document.querySelector("[data-callback-label]");
+const callbackStatus = document.querySelector("[data-callback-status]");
+const callbackMethods = callbackForm ? [...callbackForm.querySelectorAll('input[name="callback-method"]')] : [];
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 let toastTimer;
@@ -36,12 +42,33 @@ function setMobileMenu(open) {
   document.body.classList.toggle("menu-open", open);
 }
 
-function showToast() {
+function showToast(message = "Раздел будет доступен в полной версии сайта") {
   if (!toast) return;
 
   window.clearTimeout(toastTimer);
+  if (toastMessage) toastMessage.textContent = message;
   toast.classList.add("is-visible");
   toastTimer = window.setTimeout(() => toast.classList.remove("is-visible"), 2600);
+}
+
+function configureCallbackField(method) {
+  if (!callbackInput || !callbackLabel) return;
+
+  const isPhone = method === "phone";
+  callbackInput.type = isPhone ? "tel" : "email";
+  callbackInput.autocomplete = isPhone ? "tel" : "email";
+  callbackInput.inputMode = isPhone ? "tel" : "email";
+  callbackInput.placeholder = isPhone ? "+7 (___) ___-__-__" : "Ваш email";
+  callbackLabel.textContent = isPhone ? "Номер телефона" : "Электронная почта";
+  callbackInput.value = "";
+
+  if (isPhone) {
+    callbackInput.setAttribute("pattern", "[+0-9()\\-\\s]{10,}");
+  } else {
+    callbackInput.removeAttribute("pattern");
+  }
+
+  if (callbackStatus) callbackStatus.textContent = "";
 }
 
 function updateScrollState() {
@@ -142,8 +169,32 @@ carousel?.addEventListener(
 document.querySelectorAll(".js-placeholder").forEach((element) => {
   element.addEventListener("click", (event) => {
     event.preventDefault();
-    showToast();
+    showToast(element.dataset.toastMessage);
   });
+});
+
+callbackMethods.forEach((method) => {
+  method.addEventListener("change", () => {
+    if (!method.checked) return;
+    configureCallbackField(method.value);
+    callbackInput?.focus();
+  });
+});
+
+callbackInput?.addEventListener("input", () => {
+  if (callbackStatus) callbackStatus.textContent = "";
+});
+
+callbackForm?.addEventListener("submit", (event) => {
+  event.preventDefault();
+  if (!callbackForm.reportValidity()) return;
+
+  const method = callbackMethods.find((option) => option.checked)?.value;
+  if (callbackStatus) {
+    callbackStatus.textContent = method === "phone"
+      ? "Спасибо! Мы свяжемся с вами по телефону."
+      : "Спасибо! Мы свяжемся с вами по email.";
+  }
 });
 
 const revealObserver = new IntersectionObserver(
