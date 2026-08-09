@@ -38,7 +38,8 @@ const collectionContent = {
 };
 
 const collectionKey = new URLSearchParams(window.location.search).get("collection");
-const collection = collectionContent[collectionKey] || collectionContent.moments;
+const activeCollectionKey = collectionContent[collectionKey] ? collectionKey : "moments";
+const collection = collectionContent[activeCollectionKey];
 
 document.title = `${collection.title} — Mabon`;
 
@@ -74,7 +75,8 @@ document.querySelectorAll("[data-product-name]").forEach((name, index) => {
 });
 
 document.querySelectorAll("[data-product-link]").forEach((link, index) => {
-  link.dataset.toastMessage = `${collection.products[index]} будет доступен в полном каталоге`;
+  link.href = `product.html?collection=${activeCollectionKey}&product=${index}`;
+  link.setAttribute("aria-label", `Открыть товар ${collection.products[index]}`);
 });
 
 function setupExpandable(toggleSelector, contentElement, collapsedLabel, expandedLabel) {
