@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Коллекция Mabon — фарфоровые скульптуры, история создания и авторы."
+    />
+    <meta name="theme-color" content="#fbf4ed" />
+    <title>Коллекция Mabon</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect width=%2264%22 height=%2264%22 fill=%22%23fbf4ed%22/><text x=%2210%22 y=%2245%22 font-size=%2243%22 font-family=%22serif%22>M</text></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css?v=20260809-13" />
+  </head>
+  <body class="collection-detail-page">
+    <a class="skip-link" href="#main">Перейти к содержанию</a>
+
+    <header class="site-header site-header--inner" data-header>
+      <div class="header-progress" data-progress></div>
+      <nav class="desktop-nav desktop-nav--left" aria-label="Основная навигация">
+        <div class="nav-dropdown" data-dropdown>
+          <button class="nav-link nav-link--button" type="button" aria-expanded="false" data-dropdown-button>
+            Коллекции
+            <svg aria-hidden="true" viewBox="0 0 12 7">
+              <path d="M1 1l5 5 5-5" />
+            </svg>
+          </button>
+        </div>
+        <a class="nav-link" href="index.html#collections">Каталог</a>
+        <a class="nav-link" href="index.html#about">О нас</a>
+      </nav>
+
+      <a class="wordmark" href="index.html#top" aria-label="Mabon, на главную">Mabon</a>
+
+      <nav class="desktop-nav desktop-nav--right" aria-label="Дополнительная навигация">
+        <a class="nav-link" href="index.html#b2b">B2B</a>
+        <a class="nav-link" href="#contact">Контакты</a>
+        <button class="icon-link js-placeholder" type="button" aria-label="Личный кабинет">
+          <svg aria-hidden="true" viewBox="0 0 24 24">
+            <circle cx="12" cy="8" r="3.75" />
+            <path d="M5.75 20c.45-4 2.55-6 6.25-6s5.8 2 6.25 6" />
+          </svg>
+        </button>
+        <button class="icon-link js-placeholder bag-link" type="button" aria-label="Корзина, 0 товаров">
+          <svg aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M5.5 8.5h13l-1 11h-11l-1-11Z" />
+            <path d="M9 9V6.5a3 3 0 0 1 6 0V9" />
+          </svg>
+          <span>0</span>
+        </button>
+      </nav>
+
+      <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" data-menu-toggle>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="mega-menu" data-mega-menu>
+        <div class="mega-menu__intro">
+          <span class="eyebrow">Коллекции Mabon</span>
+          <p>Фарфор как форма памяти, движения и личного пространства.</p>
+        </div>
+        <div class="mega-menu__links">
+          <a href="collection.html?collection=moments"><span>01</span> Мгновения</a>
+          <a href="collection.html?collection=motya"><span>02</span> Motya MABON</a>
+          <a href="collection.html?collection=winter"><span>03</span> Хранители Зимы</a>
+        </div>
+        <a class="mega-menu__all" href="index.html#collections">
+          Смотреть все
+          <svg aria-hidden="true" viewBox="0 0 24 12"><path d="M0 6h22M17 1l5 5-5 5" /></svg>
+        </a>
+      </div>
+    </header>
+
+    <div class="mobile-menu" aria-hidden="true" data-mobile-menu>
+      <nav aria-label="Мобильная навигация">
+        <a href="index.html#collections"><span>01</span> Коллекции</a>
+        <a href="index.html#collections"><span>02</span> Каталог</a>
+        <a href="index.html#about"><span>03</span> О нас</a>
+        <a href="index.html#b2b"><span>04</span> B2B</a>
+        <a href="#contact"><span>05</span> Контакты</a>
+      </nav>
+      <div class="mobile-menu__foot">
+        <a href="tel:+79268635973">+7 (926) 863-59-73</a>
+        <a href="mailto:info@farfor-pro.com">info@farfor-pro.com</a>
+      </div>
+    </div>
+
+    <main id="main">
+      <section class="collection-story" id="top" aria-labelledby="collection-title">
+        <div class="collection-story__media reveal">
+          <img
+            src="assets/hero-moments.webp"
+            alt="Фарфоровые скульптуры коллекции Мгновения"
+            width="1672"
+            height="941"
+            fetchpriority="high"
+            data-collection-hero
+          />
+        </div>
+
+        <div class="collection-story__copy reveal" data-delay="1">
+          <span class="eyebrow">Коллекция Mabon</span>
+          <h1 id="collection-title" data-collection-title>Мгновения</h1>
+          <div class="collection-story__text">
+            <p data-collection-lead></p>
+            <p hidden data-collection-more></p>
+          </div>
+          <button class="text-cta collection-read-more" type="button" aria-expanded="false" data-story-toggle>
+            Читать дальше
+          </button>
+        </div>
+      </section>
+
+      <section class="collection-products" aria-labelledby="products-title">
+        <div class="collection-detail-head reveal">
+          <span class="eyebrow">Объекты коллекции</span>
+          <h2 id="products-title">Выбранные работы</h2>
+        </div>
+
+        <div class="product-grid">
+          <article class="product-card reveal">
+            <a class="js-placeholder" href="#" data-product-link>
+              <div class="product-card__image">
+                <img src="assets/hero-moments.webp" alt="" loading="lazy" data-product-image />
+              </div>
+              <div class="product-card__meta">
+                <h3 data-product-name></h3>
+                <span>Коллекционный фарфор</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="product-card reveal" data-delay="1">
+            <a class="js-placeholder" href="#" data-product-link>
+              <div class="product-card__image">
+                <img src="assets/hero-moments.webp" alt="" loading="lazy" data-product-image />
+              </div>
+              <div class="product-card__meta">
+                <h3 data-product-name></h3>
+                <span>Коллекционный фарфор</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="product-card reveal" data-delay="2">
+            <a class="js-placeholder" href="#" data-product-link>
+              <div class="product-card__image">
+                <img src="assets/hero-moments.webp" alt="" loading="lazy" data-product-image />
+              </div>
+              <div class="product-card__meta">
+                <h3 data-product-name></h3>
+                <span>Коллекционный фарфор</span>
+              </div>
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <section class="collection-author" aria-labelledby="author-section-title">
+        <div class="collection-detail-head reveal">
+          <span class="eyebrow">Люди и идеи</span>
+          <h2 id="author-section-title">Соавтор коллекции</h2>
+        </div>
+
+        <div class="collection-author__layout">
+          <div class="collection-author__portrait reveal">
+            <img
+              src="assets/craft-tradition.jpg"
+              alt="Работа над фарфоровой скульптурой в мастерской Mabon"
+              width="1280"
+              height="853"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="collection-author__copy reveal" data-delay="1">
+            <span class="eyebrow">Авторская работа</span>
+            <h3 data-author-name>Художественная мастерская Mabon</h3>
+            <p data-author-lead></p>
+            <p hidden data-author-more></p>
+            <button class="text-cta" type="button" aria-expanded="false" data-author-toggle>Читать подробнее</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="collection-process" aria-labelledby="process-title">
+        <div class="collection-process__intro reveal">
+          <span class="eyebrow">Мастерская</span>
+          <h2 id="process-title">Процесс создания коллекции</h2>
+          <p data-process-copy></p>
+        </div>
+
+        <div class="collection-process__gallery">
+          <figure class="reveal">
+            <img
+              src="assets/craft-process.webp"
+              alt="Ручная работа над фарфоровой формой"
+              width="765"
+              height="1080"
+              loading="lazy"
+            />
+            <figcaption>Форма и ручная доработка</figcaption>
+          </figure>
+          <figure class="reveal" data-delay="1">
+            <img
+              src="assets/collection-installation.webp"
+              alt="Готовые объекты коллекции Mabon"
+              width="2200"
+              height="1238"
+              loading="lazy"
+            />
+            <figcaption>Обжиг, роспись и финальная композиция</figcaption>
+          </figure>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" id="contact" aria-label="Контакты Mabon">
+      <div class="footer__callback">
+        <form class="callback-form" data-callback-form>
+          <fieldset class="callback-form__methods">
+            <legend>Как с вами связаться?</legend>
+            <div>
+              <label>
+                <input type="radio" name="callback-method" value="email" checked />
+                <span>Email</span>
+              </label>
+              <label>
+                <input type="radio" name="callback-method" value="phone" />
+                <span>По телефону</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="callback-form__entry">
+            <label class="visually-hidden" for="callback-contact" data-callback-label>Электронная почта</label>
+            <input
+              id="callback-contact"
+              name="contact"
+              type="email"
+              autocomplete="email"
+              placeholder="Ваш email"
+              required
+              data-callback-input
+            />
+            <button type="submit">Отправить <span aria-hidden="true">↗</span></button>
+          </div>
+          <p class="callback-form__status" role="status" aria-live="polite" data-callback-status></p>
+        </form>
+
+        <div class="footer__account footer__account--featured">
+          <span>Личный кабинет</span>
+          <p>Сохраняйте избранное и следите за статусом заказов.</p>
+          <a class="js-placeholder" href="#" data-toast-message="Регистрация будет доступна в полной версии сайта">Зарегистрироваться ↗</a>
+        </div>
+      </div>
+
+      <div class="footer__directory">
+        <div class="footer__contact-block">
+          <span>Контакты</span>
+          <a href="tel:+79268635973">+7 (926) 863-59-73</a>
+          <a href="mailto:info@farfor-pro.com">info@farfor-pro.com</a>
+        </div>
+        <div class="footer__brand">
+          <a class="footer__mark" href="index.html#top" aria-label="Mabon, на главную">Mabon</a>
+        </div>
+        <div class="footer__socials" aria-label="Социальные сети">
+          <a class="js-placeholder" href="#" aria-label="Telegram" data-toast-message="Telegram будет доступен в полной версии сайта">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path fill="currentColor" d="M9.8 15.5 9.4 20c.55 0 .8-.24 1.08-.53l2.59-2.48 5.37 3.93c.98.55 1.68.26 1.95-.91L23.92 3.5c.36-1.44-.55-2.1-1.49-1.75L1.7 9.75c-1.42.55-1.4 1.33-.24 1.68l5.3 1.65L19.05 5.3c.58-.35 1.11-.16.68.22Z" /></svg>
+          </a>
+          <a class="js-placeholder" href="#" aria-label="Instagram" data-toast-message="Instagram будет доступен в полной версии сайта">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4.25" /><circle cx="17.4" cy="6.7" r="1" fill="currentColor" stroke="none" /></svg>
+          </a>
+          <a class="js-placeholder" href="#" aria-label="Pinterest" data-toast-message="Pinterest будет доступен в полной версии сайта">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-3.64 19.31c-.08-1.64-.02-3.6.41-5.46l1.29-5.44s-.33-.66-.33-1.63c0-1.52.89-2.66 1.98-2.66.93 0 1.38.7 1.38 1.55 0 .94-.59 2.34-.9 3.64-.25 1.09.55 1.98 1.63 1.98 1.95 0 3.45-2.06 3.45-5.03 0-2.63-1.89-4.47-4.58-4.47-3.12 0-4.95 2.34-4.95 4.76 0 .94.36 1.95.81 2.5.09.11.1.2.07.31l-.3 1.27c-.05.2-.17.24-.39.15-1.46-.68-2.37-2.8-2.37-4.51 0-3.68 2.67-7.06 7.7-7.06 4.05 0 7.2 2.88 7.2 6.73 0 4.02-2.53 7.25-6.05 7.25-1.18 0-2.29-.61-2.67-1.34l-.73 2.76c-.26 1.01-.98 2.28-1.46 3.05A10 10 0 1 0 12 2Z" /></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer__meta">
+        <span>© <span data-year></span> Mabon</span>
+        <div>
+          <a class="js-placeholder" href="#">Политика конфиденциальности</a>
+          <a class="js-placeholder" href="#">Публичная оферта</a>
+        </div>
+      </div>
+    </footer>
+
+    <div class="toast" role="status" aria-live="polite" data-toast>
+      <span data-toast-message>Раздел будет доступен в полной версии сайта</span>
+    </div>
+
+    <script src="script.js?v=20260809-7"></script>
+    <script src="collection-page.js?v=20260809-1"></script>
+  </body>
+</html>

@@ -17,7 +17,7 @@
       rel="stylesheet"
     />
     <link rel="preload" as="image" href="assets/hero-moments.webp" fetchpriority="high" />
-    <link rel="stylesheet" href="styles.css?v=20260809-11" />
+    <link rel="stylesheet" href="styles.css?v=20260809-13" />
   </head>
   <body>
     <a class="skip-link" href="#main">Перейти к содержанию</a>
@@ -68,9 +68,9 @@
           <p>Фарфор как форма памяти, движения и личного пространства.</p>
         </div>
         <div class="mega-menu__links">
-          <a href="#collections"><span>01</span> Мгновения</a>
-          <a href="#collections"><span>02</span> Motya MABON</a>
-          <a href="#collections"><span>03</span> Хранители Зимы</a>
+          <a href="collection.html?collection=moments"><span>01</span> Мгновения</a>
+          <a href="collection.html?collection=motya"><span>02</span> Motya MABON</a>
+          <a href="collection.html?collection=winter"><span>03</span> Хранители Зимы</a>
         </div>
         <a class="mega-menu__all" href="#collections">
           Смотреть все
@@ -124,7 +124,7 @@
       <section class="collections" id="collections" aria-label="Коллекции">
         <div class="collection-track" data-carousel>
           <article class="collection-item reveal">
-            <div class="collection-image">
+            <a class="collection-image" href="collection.html?collection=moments" aria-label="Открыть коллекцию Мгновения">
               <img
                 src="assets/hero-moments.webp"
                 alt="Фарфоровые фигуры из коллекции Мгновения"
@@ -136,11 +136,11 @@
                 <h3>Мгновения</h3>
                 <p>Форма как память о близости, тишине и времени рядом.</p>
               </div>
-            </div>
+            </a>
           </article>
 
           <article class="collection-item reveal" data-delay="1">
-            <div class="collection-image collection-image--light">
+            <a class="collection-image collection-image--light" href="collection.html?collection=motya" aria-label="Открыть коллекцию Motya MABON">
               <img
                 src="assets/collection-forms.webp"
                 alt="Белые фарфоровые объекты с рельефной поверхностью"
@@ -152,11 +152,11 @@
                 <h3>Motya MABON</h3>
                 <p>Пластика движения, застывшая в свете и белом фарфоре.</p>
               </div>
-            </div>
+            </a>
           </article>
 
           <article class="collection-item reveal" data-delay="2">
-            <div class="collection-image">
+            <a class="collection-image" href="collection.html?collection=winter" aria-label="Открыть коллекцию Хранители Зимы">
               <img
                 src="assets/mabon-packaging.webp"
                 alt="Коллекционные коробки Mabon в направленном свете"
@@ -168,7 +168,7 @@
                 <h3>Хранители Зимы</h3>
                 <p>Сезонная история о хрупкости, свете и домашнем ритуале.</p>
               </div>
-            </div>
+            </a>
           </article>
         </div>
 
