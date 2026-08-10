@@ -2,11 +2,12 @@ const productCatalog = {
   moments: {
     name: "Мгновения",
     image: "assets/hero-moments.webp",
+    basePrice: 52000,
     products: [
       {
         name: "Вместе",
         lead: "Фарфоровая композиция о близости, спокойствии и моменте, который хочется сохранить.",
-        more: "Мягкая пластика и матовая поверхность раскрываются при боковом свете, подчёркивая силуэты и едва заметные жесты фигур.",
+        more: "Мягкая пластика и матовая поверхность раскрываются при боковом свете, подчёркивая силуэты и едва заметные жесты фигур. Каждый экземпляр проходит ручную доработку, поэтому поверхность сохраняет небольшие различия и живое присутствие материала.",
         height: "24 см",
         width: "18 см",
         weight: "1,2 кг"
@@ -14,7 +15,7 @@ const productCatalog = {
       {
         name: "Тихий жест",
         lead: "Небольшая скульптура, построенная вокруг одного сдержанного движения и паузы между людьми.",
-        more: "Объект задуман для близкого рассмотрения: детали рук и лица намеренно смягчены, чтобы сохранить ощущение живого воспоминания.",
+        more: "Объект задуман для близкого рассмотрения: детали рук и лица намеренно смягчены, чтобы сохранить ощущение живого воспоминания. Финальная поверхность дорабатывается вручную после первого обжига.",
         height: "21 см",
         width: "15 см",
         weight: "0,9 кг"
@@ -22,7 +23,7 @@ const productCatalog = {
       {
         name: "Перед рассветом",
         lead: "Композиция о тишине раннего утра и ощущении времени, которое на мгновение остановилось.",
-        more: "Светлая масса фарфора и вытянутый силуэт создают спокойный вертикальный ритм, меняющийся в течение дня.",
+        more: "Светлая масса фарфора и вытянутый силуэт создают спокойный вертикальный ритм, меняющийся в течение дня. Небольшой тираж позволяет сохранить внимание к каждой детали.",
         height: "27 см",
         width: "16 см",
         weight: "1,1 кг"
@@ -32,11 +33,12 @@ const productCatalog = {
   motya: {
     name: "Motya MABON",
     image: "assets/collection-forms.webp",
+    basePrice: 61000,
     products: [
       {
         name: "Motya I",
         lead: "Чистая фарфоровая форма, в которой рельеф становится главным рисунком объекта.",
-        more: "Вертикальный силуэт по-разному реагирует на мягкий и направленный свет, раскрывая глубину каждой складки.",
+        more: "Вертикальный силуэт по-разному реагирует на мягкий и направленный свет, раскрывая глубину каждой складки. Объект проходит несколько этапов ручной шлифовки перед обжигом.",
         height: "31 см",
         width: "17 см",
         weight: "1,4 кг"
@@ -62,16 +64,12 @@ const productCatalog = {
   winter: {
     name: "Хранители Зимы",
     image: "assets/mabon-packaging.webp",
-    variants: [
-      { name: "Бисквит", color: "#f5f1eb" },
-      { name: "Деколь", color: "#8b5a34" },
-      { name: "Ручная роспись", color: "#4b2f20" }
-    ],
+    basePrice: 47000,
     products: [
       {
         name: "Хранитель света",
         lead: "Сезонная фарфоровая фигура о домашнем свете и спокойствии зимнего вечера.",
-        more: "Один и тот же образ доступен в трёх вариантах исполнения: чистый бисквит, деколь и ручная роспись.",
+        more: "Один и тот же образ доступен в трёх вариантах исполнения: чистый бисквит, деколь и ручная роспись. Каждая версия по-разному раскрывает пластику объекта.",
         height: "22 см",
         width: "14 см",
         weight: "0,9 кг"
@@ -106,65 +104,234 @@ const activeProductIndex = Number.isInteger(requestedProductIndex) && activeProd
   : 0;
 const activeProduct = activeProductCollection.products[activeProductIndex];
 
-document.title = `${activeProduct.name} — Mabon`;
+const collectionVariantImages = {
+  moments: [
+    "assets/product-together-decal.jpg",
+    "assets/product-together-bisque.jpg",
+    "assets/product-together-painted.jpg"
+  ],
+  motya: [
+    "assets/collection-forms.webp",
+    "assets/craft-process.webp",
+    "assets/collection-installation.webp"
+  ],
+  winter: [
+    "assets/mabon-packaging.webp",
+    "assets/hero-moments.webp",
+    "assets/collection-installation.webp"
+  ]
+};
+
+const productVariants = [
+  {
+    key: "decal",
+    name: "Деколь",
+    color: "#31547e",
+    priceDelta: 16000,
+    material: "Фарфор, кобальтовая деколь"
+  },
+  {
+    key: "bisque",
+    name: "Бисквит",
+    color: "#eee6dc",
+    priceDelta: 0,
+    material: "Неглазурованный фарфор, бисквит"
+  },
+  {
+    key: "painted",
+    name: "Роспись",
+    color: "#783a31",
+    priceDelta: 37000,
+    material: "Фарфор, ручная роспись, золото"
+  }
+].map((variant, index) => ({
+  ...variant,
+  image: collectionVariantImages[activeProductCollectionKey][index]
+}));
 
 const productTitle = document.querySelector("[data-product-title]");
 const productLead = document.querySelector("[data-product-lead]");
 const productMore = document.querySelector("[data-product-more]");
 const productImage = document.querySelector("[data-product-main-image]");
 const productCollectionLink = document.querySelector("[data-product-collection-link]");
-const productHeight = document.querySelector("[data-product-height]");
-const productWidth = document.querySelector("[data-product-width]");
-const productWeight = document.querySelector("[data-product-weight]");
+const productPrice = document.querySelector("[data-product-price]");
+const detailMaterial = document.querySelector("[data-detail-material]");
+const galleryCurrent = document.querySelector("[data-gallery-current]");
+const galleryTotal = document.querySelector("[data-gallery-total]");
+const galleryCaption = document.querySelector("[data-gallery-caption]");
+const galleryThumbnails = document.querySelector("[data-gallery-thumbnails]");
+const variantOptions = document.querySelector("[data-variant-options]");
+const productQuantity = document.querySelector("[data-product-quantity]");
+const quantityMinus = document.querySelector("[data-quantity-minus]");
+const bagCount = document.querySelector("[data-bag-count]");
+const bagButton = document.querySelector("[data-bag-button]");
+const addToCartButton = document.querySelector("[data-add-to-cart]");
 
+document.title = `${activeProduct.name} — Mabon`;
 if (productTitle) productTitle.textContent = activeProduct.name;
 if (productLead) productLead.textContent = activeProduct.lead;
 if (productMore) productMore.textContent = activeProduct.more;
-if (productHeight) productHeight.textContent = activeProduct.height;
-if (productWidth) productWidth.textContent = activeProduct.width;
-if (productWeight) productWeight.textContent = activeProduct.weight;
+
+document.querySelectorAll("[data-product-height]").forEach((element) => {
+  element.textContent = activeProduct.height;
+});
+document.querySelectorAll("[data-product-width]").forEach((element) => {
+  element.textContent = activeProduct.width;
+});
+document.querySelectorAll("[data-product-weight]").forEach((element) => {
+  element.textContent = activeProduct.weight;
+});
 
 if (productCollectionLink) {
-  productCollectionLink.textContent = activeProductCollection.name;
+  productCollectionLink.textContent = `Коллекция ${activeProductCollection.name}`;
   productCollectionLink.href = `collection.html?collection=${activeProductCollectionKey}`;
 }
 
-const galleryFrames = [
-  { position: "20% center", scale: "1" },
-  { position: "50% center", scale: "1.08" },
-  { position: "80% center", scale: "1.03" }
-];
+let activeVariantIndex = 0;
 let galleryIndex = 0;
+let galleryFrames = [];
+let quantity = 0;
+let imageChangeTimer;
 
-const galleryCurrent = document.querySelector("[data-gallery-current]");
-const galleryTotal = document.querySelector("[data-gallery-total]");
+function formatPrice(value) {
+  return `${new Intl.NumberFormat("ru-RU").format(value)} ₽`;
+}
 
-function updateGallery() {
-  if (!productImage) return;
+function createGalleryFrames() {
+  const variant = productVariants[activeVariantIndex];
+  const isPortraitProduct = activeProductCollectionKey === "moments";
 
+  return [
+    {
+      src: variant.image,
+      position: "50% 50%",
+      scale: 1,
+      label: `${activeProduct.name} · ${variant.name} · общий вид`
+    },
+    {
+      src: variant.image,
+      position: "50% 30%",
+      scale: isPortraitProduct ? 1.42 : 1.18,
+      label: `${activeProduct.name} · деталь поверхности`
+    },
+    {
+      src: variant.image,
+      position: "50% 76%",
+      scale: isPortraitProduct ? 1.5 : 1.24,
+      label: `${activeProduct.name} · деталь основания`
+    },
+    {
+      src: activeProductCollectionKey === "moments"
+        ? "assets/product-together-interior-console.jpg"
+        : activeProductCollection.image,
+      position: "50% 50%",
+      scale: 1,
+      label: `${activeProduct.name} · в интерьере`
+    }
+  ];
+}
+
+function updateGalleryUi() {
   const frame = galleryFrames[galleryIndex];
+  if (!frame || !productImage) return;
+
+  window.clearTimeout(imageChangeTimer);
   productImage.classList.add("is-changing");
 
-  window.setTimeout(() => {
-    productImage.src = activeProductCollection.image;
-    productImage.alt = `${activeProduct.name}, фотография ${galleryIndex + 1} из ${galleryFrames.length}`;
+  imageChangeTimer = window.setTimeout(() => {
+    productImage.src = frame.src;
+    productImage.alt = frame.label;
     productImage.style.objectPosition = frame.position;
     productImage.style.setProperty("--product-image-scale", frame.scale);
     productImage.classList.remove("is-changing");
-  }, 140);
+  }, 150);
 
   if (galleryCurrent) galleryCurrent.textContent = String(galleryIndex + 1).padStart(2, "0");
   if (galleryTotal) galleryTotal.textContent = String(galleryFrames.length).padStart(2, "0");
+  if (galleryCaption) galleryCaption.textContent = frame.label;
+
+  galleryThumbnails?.querySelectorAll("button").forEach((button, index) => {
+    const selected = index === galleryIndex;
+    button.classList.toggle("is-active", selected);
+    button.setAttribute("aria-current", selected ? "true" : "false");
+  });
 }
+
+function buildGalleryThumbnails() {
+  if (!galleryThumbnails) return;
+  galleryThumbnails.replaceChildren();
+
+  galleryFrames.forEach((frame, index) => {
+    const button = document.createElement("button");
+    const image = document.createElement("img");
+
+    button.type = "button";
+    button.setAttribute("aria-label", `Показать: ${frame.label}`);
+    image.src = frame.src;
+    image.alt = "";
+    image.loading = index === 0 ? "eager" : "lazy";
+    image.style.objectPosition = frame.position;
+    image.style.setProperty("--thumb-scale", frame.scale);
+    button.append(image);
+    button.addEventListener("click", () => {
+      galleryIndex = index;
+      updateGalleryUi();
+    });
+    galleryThumbnails.append(button);
+  });
+}
+
+function setVariant(index) {
+  activeVariantIndex = index;
+  galleryIndex = 0;
+  galleryFrames = createGalleryFrames();
+  buildGalleryThumbnails();
+  updateGalleryUi();
+
+  const variant = productVariants[activeVariantIndex];
+  if (productPrice) {
+    productPrice.textContent = formatPrice(activeProductCollection.basePrice + (activeProductIndex * 4500) + variant.priceDelta);
+  }
+  if (detailMaterial) detailMaterial.textContent = variant.material;
+}
+
+productVariants.forEach((variant, index) => {
+  if (!variantOptions) return;
+
+  const label = document.createElement("label");
+  const input = document.createElement("input");
+  const content = document.createElement("span");
+  const circle = document.createElement("i");
+  const number = document.createElement("small");
+  const name = document.createElement("b");
+
+  label.className = "product-variant";
+  input.type = "radio";
+  input.name = "product-variant";
+  input.value = variant.key;
+  input.checked = index === 0;
+  input.setAttribute("aria-label", variant.name);
+  content.className = "product-variant__content";
+  circle.style.setProperty("--variant-color", variant.color);
+  number.textContent = String(index + 1).padStart(2, "0");
+  name.textContent = variant.name;
+  circle.append(number);
+  content.append(circle, name);
+  label.append(input, content);
+  input.addEventListener("change", () => {
+    if (input.checked) setVariant(index);
+  });
+  variantOptions.append(label);
+});
 
 document.querySelector("[data-gallery-prev]")?.addEventListener("click", () => {
   galleryIndex = (galleryIndex - 1 + galleryFrames.length) % galleryFrames.length;
-  updateGallery();
+  updateGalleryUi();
 });
 
 document.querySelector("[data-gallery-next]")?.addEventListener("click", () => {
   galleryIndex = (galleryIndex + 1) % galleryFrames.length;
-  updateGallery();
+  updateGalleryUi();
 });
 
 const productDescriptionToggle = document.querySelector("[data-product-description-toggle]");
@@ -175,34 +342,95 @@ productDescriptionToggle?.addEventListener("click", () => {
   productDescriptionToggle.textContent = expanded ? "Читать дальше" : "Скрыть текст";
 });
 
-const variantFieldset = document.querySelector("[data-product-variants]");
-const variantOptions = document.querySelector("[data-variant-options]");
-const selectedVariant = document.querySelector("[data-selected-variant]");
-
-if (activeProductCollection.variants?.length && variantFieldset && variantOptions) {
-  variantFieldset.hidden = false;
-
-  activeProductCollection.variants.forEach((variant, index) => {
-    const label = document.createElement("label");
-    const input = document.createElement("input");
-    const swatch = document.createElement("span");
-
-    input.type = "radio";
-    input.name = "product-variant";
-    input.value = variant.name;
-    input.checked = index === 0;
-    input.setAttribute("aria-label", variant.name);
-    swatch.style.setProperty("--variant-color", variant.color);
-
-    input.addEventListener("change", () => {
-      if (input.checked && selectedVariant) selectedVariant.textContent = variant.name;
-    });
-
-    label.append(input, swatch);
-    variantOptions.append(label);
-  });
-
-  if (selectedVariant) selectedVariant.textContent = activeProductCollection.variants[0].name;
+function setQuantity(nextQuantity) {
+  quantity = Math.max(0, nextQuantity);
+  if (productQuantity) productQuantity.value = String(quantity);
+  if (bagCount) bagCount.textContent = String(quantity);
+  if (quantityMinus) quantityMinus.disabled = quantity === 0;
+  if (addToCartButton) addToCartButton.textContent = quantity > 0 ? "Добавить ещё" : "Добавить в корзину";
+  if (bagButton) bagButton.setAttribute("aria-label", `Корзина, ${quantity} ${quantity === 1 ? "товар" : "товаров"}`);
 }
 
-updateGallery();
+addToCartButton?.addEventListener("click", () => setQuantity(quantity + 1));
+document.querySelector("[data-quantity-plus]")?.addEventListener("click", () => setQuantity(quantity + 1));
+quantityMinus?.addEventListener("click", () => setQuantity(quantity - 1));
+
+document.querySelectorAll("[data-disclosure-trigger]").forEach((trigger) => {
+  const panel = document.getElementById(trigger.getAttribute("aria-controls"));
+  trigger.addEventListener("click", () => {
+    const isExpanded = trigger.getAttribute("aria-expanded") === "true";
+    trigger.setAttribute("aria-expanded", String(!isExpanded));
+    trigger.closest(".product-disclosure")?.classList.toggle("is-open", !isExpanded);
+    if (panel) panel.hidden = isExpanded;
+  });
+});
+
+const relatedNames = {
+  moments: ["Тихий жест", "Перед рассветом", "Свет рядом", "Пауза", "Двое"],
+  motya: ["Белый ритм", "Линия света", "Motya II", "Рельеф", "Белое движение"],
+  winter: ["Зимняя тишина", "Домой", "Хранитель утра", "Первый снег", "Тёплое окно"]
+};
+const relatedImages = activeProductCollectionKey === "moments"
+  ? [
+      "assets/product-together-bisque.jpg",
+      "assets/product-together-decal.jpg",
+      "assets/product-together-painted.jpg",
+      "assets/hero-moments.webp",
+      "assets/product-together-interior-shelf.jpg"
+    ]
+  : [
+      activeProductCollection.image,
+      "assets/collection-forms.webp",
+      "assets/collection-installation.webp",
+      "assets/craft-process.webp",
+      activeProductCollection.image
+    ];
+
+const relatedTrack = document.querySelector("[data-related-track]");
+relatedNames[activeProductCollectionKey].forEach((name, index) => {
+  if (!relatedTrack) return;
+
+  const article = document.createElement("article");
+  const link = document.createElement("a");
+  const imageWrap = document.createElement("div");
+  const image = document.createElement("img");
+  const meta = document.createElement("div");
+  const title = document.createElement("h3");
+  const price = document.createElement("span");
+
+  article.className = "related-product";
+  link.href = `product.html?collection=${activeProductCollectionKey}&product=${index % activeProductCollection.products.length}`;
+  link.setAttribute("aria-label", `Открыть товар ${name}`);
+  imageWrap.className = "related-product__image";
+  image.src = relatedImages[index];
+  image.alt = name;
+  image.loading = "lazy";
+  image.style.objectPosition = `${30 + (index * 10)}% center`;
+  meta.className = "related-product__meta";
+  title.textContent = name;
+  price.textContent = formatPrice(activeProductCollection.basePrice + 4000 + (index * 5500));
+
+  imageWrap.append(image);
+  meta.append(title, price);
+  link.append(imageWrap, meta);
+  article.append(link);
+  relatedTrack.append(article);
+});
+
+const relatedViewport = document.querySelector(".product-related__viewport");
+function getRelatedStep() {
+  const firstCard = relatedTrack?.querySelector(".related-product");
+  if (!firstCard || !relatedTrack) return 0;
+  const gap = Number.parseFloat(getComputedStyle(relatedTrack).columnGap) || 0;
+  return firstCard.getBoundingClientRect().width + gap;
+}
+
+document.querySelector("[data-related-prev]")?.addEventListener("click", () => {
+  relatedViewport?.scrollBy({ left: -getRelatedStep(), behavior: "smooth" });
+});
+document.querySelector("[data-related-next]")?.addEventListener("click", () => {
+  relatedViewport?.scrollBy({ left: getRelatedStep(), behavior: "smooth" });
+});
+
+setVariant(0);
+setQuantity(0);

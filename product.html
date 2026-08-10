@@ -13,7 +13,8 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&amp;display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=20260809-14" />
+    <link rel="preload" as="image" href="assets/product-together-decal.jpg" fetchpriority="high" />
+    <link rel="stylesheet" href="styles.css?v=20260810-2" />
   </head>
   <body class="product-page">
     <a class="skip-link" href="#main">Перейти к содержанию</a>
@@ -28,7 +29,7 @@
           </button>
         </div>
         <a class="nav-link" href="index.html#collections">Каталог</a>
-        <a class="nav-link" href="index.html#about">О нас</a>
+        <a class="nav-link" href="about.html">О нас</a>
       </nav>
 
       <a class="wordmark" href="index.html#top" aria-label="Mabon, на главную">Mabon</a>
@@ -39,9 +40,9 @@
         <button class="icon-link js-placeholder" type="button" aria-label="Личный кабинет">
           <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.75" /><path d="M5.75 20c.45-4 2.55-6 6.25-6s5.8 2 6.25 6" /></svg>
         </button>
-        <button class="icon-link js-placeholder bag-link" type="button" aria-label="Корзина, 0 товаров">
+        <button class="icon-link bag-link" type="button" aria-label="Корзина, 0 товаров" data-bag-button>
           <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5.5 8.5h13l-1 11h-11l-1-11Z" /><path d="M9 9V6.5a3 3 0 0 1 6 0V9" /></svg>
-          <span>0</span>
+          <span data-bag-count>0</span>
         </button>
       </nav>
 
@@ -67,7 +68,7 @@
       <nav aria-label="Мобильная навигация">
         <a href="index.html#collections"><span>01</span> Коллекции</a>
         <a href="index.html#collections"><span>02</span> Каталог</a>
-        <a href="index.html#about"><span>03</span> О нас</a>
+        <a href="about.html"><span>03</span> О нас</a>
         <a href="index.html#b2b"><span>04</span> B2B</a>
         <a href="#contact"><span>05</span> Контакты</a>
       </nav>
@@ -80,65 +81,135 @@
     <main id="main">
       <section class="product-detail" id="top" aria-labelledby="product-title">
         <div class="product-gallery reveal" data-product-gallery>
-          <div class="product-gallery__viewport">
+          <div class="product-gallery__viewport" aria-live="polite">
             <img
-              src="assets/hero-moments.webp"
-              alt="Коллекционный фарфоровый объект Mabon"
-              width="1672"
-              height="941"
+              src="assets/product-together-decal.jpg"
+              alt="Фарфоровая композиция Вместе, исполнение Деколь"
+              width="1122"
+              height="1402"
               fetchpriority="high"
               data-product-main-image
             />
           </div>
 
-          <div class="product-gallery__controls">
-            <div class="product-gallery__count" aria-live="polite">
+          <div class="product-gallery__caption">
+            <span data-gallery-caption>Общий вид</span>
+            <div class="product-gallery__count" aria-label="Текущее изображение">
               <span data-gallery-current>01</span>
               <i></i>
-              <span data-gallery-total>03</span>
+              <span data-gallery-total>04</span>
             </div>
-            <div class="product-gallery__buttons">
-              <button type="button" aria-label="Предыдущее фото" data-gallery-prev>
-                <svg aria-hidden="true" viewBox="0 0 32 14"><path d="M32 7H2M8 1 2 7l6 6" /></svg>
-              </button>
-              <button type="button" aria-label="Следующее фото" data-gallery-next>
-                <svg aria-hidden="true" viewBox="0 0 32 14"><path d="M0 7h30M24 1l6 6-6 6" /></svg>
-              </button>
-            </div>
+          </div>
+
+          <div class="product-gallery__thumbnails-wrap">
+            <button class="product-gallery__arrow" type="button" aria-label="Предыдущее фото" data-gallery-prev>
+              <svg aria-hidden="true" viewBox="0 0 32 14"><path d="M32 7H2M8 1 2 7l6 6" /></svg>
+            </button>
+            <div class="product-gallery__thumbnails" data-gallery-thumbnails></div>
+            <button class="product-gallery__arrow" type="button" aria-label="Следующее фото" data-gallery-next>
+              <svg aria-hidden="true" viewBox="0 0 32 14"><path d="M0 7h30M24 1l6 6-6 6" /></svg>
+            </button>
           </div>
         </div>
 
         <div class="product-info reveal" data-delay="1">
-          <a class="eyebrow product-info__collection" href="collection.html?collection=moments" data-product-collection-link></a>
-          <h1 id="product-title" data-product-title>Объект Mabon</h1>
+          <div>
+            <a class="eyebrow product-info__collection" href="collection.html?collection=moments" data-product-collection-link></a>
+            <h1 id="product-title" data-product-title>Вместе</h1>
 
-          <div class="product-info__description">
-            <p data-product-lead></p>
-            <p hidden data-product-more></p>
+            <fieldset class="product-variants" data-product-variants>
+              <legend>Выберите вариант исполнения</legend>
+              <div class="product-variants__options" data-variant-options></div>
+            </fieldset>
+
+            <div class="product-info__description">
+              <span class="eyebrow">Об объекте</span>
+              <p data-product-lead></p>
+              <p hidden data-product-more></p>
+              <button class="text-cta product-description-toggle" type="button" aria-expanded="false" data-product-description-toggle>Читать дальше</button>
+            </div>
           </div>
-          <button class="text-cta product-description-toggle" type="button" aria-expanded="false" data-product-description-toggle>Читать дальше</button>
 
-          <fieldset class="product-variants" hidden data-product-variants>
-            <legend>Вариант исполнения</legend>
-            <p>Выберите отделку одной и той же фигуры</p>
-            <div class="product-variants__options" data-variant-options></div>
-            <span class="product-variants__selected" data-selected-variant></span>
-          </fieldset>
+          <div class="product-purchase">
+            <div class="product-purchase__price">
+              <span>Цена</span>
+              <strong data-product-price>68 000 ₽</strong>
+              <small>Срок изготовления — 3–4 недели</small>
+            </div>
+            <div class="product-purchase__actions">
+              <button class="product-add-button" type="button" data-add-to-cart>Добавить в корзину</button>
+              <div class="product-quantity" aria-label="Количество товара">
+                <button type="button" aria-label="Уменьшить количество" data-quantity-minus disabled>−</button>
+                <output aria-live="polite" data-product-quantity>0</output>
+                <button type="button" aria-label="Увеличить количество" data-quantity-plus>+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-          <dl class="product-specs">
-            <div>
-              <dt>Высота</dt>
-              <dd data-product-height></dd>
+      <section class="product-disclosures" aria-label="Подробности о товаре">
+        <article class="product-disclosure reveal">
+          <button class="product-disclosure__trigger" type="button" aria-expanded="false" aria-controls="product-details-panel" data-disclosure-trigger>
+            <span class="product-disclosure__icon" aria-hidden="true"></span>
+            <strong>Details</strong>
+            <span>Материал, техника, тираж и уход</span>
+            <svg aria-hidden="true" viewBox="0 0 18 10"><path d="m1 1 8 8 8-8" /></svg>
+          </button>
+          <div class="product-disclosure__panel" id="product-details-panel" hidden data-disclosure-panel>
+            <dl class="product-details-list">
+              <div><dt>Материал</dt><dd data-detail-material>Фарфор, деколь</dd></div>
+              <div><dt>Техника</dt><dd>Литьё в гипсовую форму, ручная обработка, два обжига</dd></div>
+              <div><dt>Тираж</dt><dd>Лимитированная серия · 100 экземпляров</dd></div>
+              <div><dt>Размер</dt><dd><span data-product-height></span> × <span data-product-width></span> · <span data-product-weight></span></dd></div>
+              <div><dt>Уход</dt><dd>Сухая мягкая ткань. Не использовать абразивные средства.</dd></div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="product-disclosure reveal" data-delay="1">
+          <button class="product-disclosure__trigger" type="button" aria-expanded="false" aria-controls="product-inspiration-panel" data-disclosure-trigger>
+            <span class="product-disclosure__icon" aria-hidden="true"></span>
+            <strong>Inspiration</strong>
+            <span>Фигура в интерьере и примеры размещения</span>
+            <svg aria-hidden="true" viewBox="0 0 18 10"><path d="m1 1 8 8 8-8" /></svg>
+          </button>
+          <div class="product-disclosure__panel product-inspiration" id="product-inspiration-panel" hidden data-disclosure-panel>
+            <div class="product-inspiration__intro">
+              <span class="eyebrow">В пространстве</span>
+              <p>Объект рассчитан на близкое созерцание: поставьте его на консоль, книжную полку или невысокий постамент в мягком боковом свете.</p>
             </div>
-            <div>
-              <dt>Ширина</dt>
-              <dd data-product-width></dd>
+            <div class="product-inspiration__gallery">
+              <figure>
+                <img src="assets/product-together-interior-console.jpg" alt="Скульптура Вместе на травертиновой консоли в гостиной" width="1536" height="1024" loading="lazy" />
+                <figcaption>Низкая консоль · естественный боковой свет</figcaption>
+              </figure>
+              <figure>
+                <img src="assets/product-together-interior-shelf.jpg" alt="Скульптура Вместе на книжной полке" width="1536" height="1024" loading="lazy" />
+                <figcaption>Книжная полка · камерная композиция</figcaption>
+              </figure>
             </div>
-            <div>
-              <dt>Вес</dt>
-              <dd data-product-weight></dd>
-            </div>
-          </dl>
+          </div>
+        </article>
+      </section>
+
+      <section class="product-related" aria-labelledby="related-title">
+        <div class="product-related__head reveal">
+          <div>
+            <span class="eyebrow">Продолжить знакомство</span>
+            <h2 id="related-title">Из той же коллекции</h2>
+          </div>
+          <div class="product-related__buttons">
+            <button type="button" aria-label="Предыдущие товары" data-related-prev>
+              <svg aria-hidden="true" viewBox="0 0 32 14"><path d="M32 7H2M8 1 2 7l6 6" /></svg>
+            </button>
+            <button type="button" aria-label="Следующие товары" data-related-next>
+              <svg aria-hidden="true" viewBox="0 0 32 14"><path d="M0 7h30M24 1l6 6-6 6" /></svg>
+            </button>
+          </div>
+        </div>
+        <div class="product-related__viewport reveal" data-delay="1">
+          <div class="product-related__track" data-related-track></div>
         </div>
       </section>
     </main>
@@ -190,7 +261,7 @@
 
     <div class="toast" role="status" aria-live="polite" data-toast><span data-toast-message>Раздел будет доступен в полной версии сайта</span></div>
 
-    <script src="script.js?v=20260809-7"></script>
-    <script src="product-page.js?v=20260809-1"></script>
+    <script src="script.js?v=20260810-2"></script>
+    <script src="product-page.js?v=20260810-2"></script>
   </body>
 </html>

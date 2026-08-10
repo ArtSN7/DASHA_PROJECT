@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="О Mabon — философия бренда, история мастерской, этапы производства и команда, которая создаёт коллекционный фарфор."
+    />
+    <meta name="theme-color" content="#fbf4ed" />
+    <title>О нас — Mabon</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect width=%2264%22 height=%2264%22 fill=%22%23fbf4ed%22/><text x=%2210%22 y=%2245%22 font-size=%2243%22 font-family=%22serif%22>M</text></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preload" as="image" href="assets/craft-tradition.jpg" fetchpriority="high" />
+    <link rel="stylesheet" href="styles.css?v=20260810-1" />
+  </head>
+  <body class="about-page">
+    <a class="skip-link" href="#main">Перейти к содержанию</a>
+
+    <header class="site-header" data-header>
+      <div class="header-progress" data-progress></div>
+      <nav class="desktop-nav desktop-nav--left" aria-label="Основная навигация">
+        <div class="nav-dropdown" data-dropdown>
+          <button class="nav-link nav-link--button" type="button" aria-expanded="false" data-dropdown-button>
+            Коллекции
+            <svg aria-hidden="true" viewBox="0 0 12 7"><path d="M1 1l5 5 5-5" /></svg>
+          </button>
+        </div>
+        <a class="nav-link" href="index.html#collections">Каталог</a>
+        <a class="nav-link" href="about.html" aria-current="page">О нас</a>
+      </nav>
+
+      <a class="wordmark" href="index.html#top" aria-label="Mabon, на главную">Mabon</a>
+
+      <nav class="desktop-nav desktop-nav--right" aria-label="Дополнительная навигация">
+        <a class="nav-link" href="index.html#b2b">B2B</a>
+        <a class="nav-link" href="#contact">Контакты</a>
+        <button class="icon-link js-placeholder" type="button" aria-label="Личный кабинет">
+          <svg aria-hidden="true" viewBox="0 0 24 24">
+            <circle cx="12" cy="8" r="3.75" />
+            <path d="M5.75 20c.45-4 2.55-6 6.25-6s5.8 2 6.25 6" />
+          </svg>
+        </button>
+        <button class="icon-link js-placeholder bag-link" type="button" aria-label="Корзина, 0 товаров">
+          <svg aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M5.5 8.5h13l-1 11h-11l-1-11Z" />
+            <path d="M9 9V6.5a3 3 0 0 1 6 0V9" />
+          </svg>
+          <span>0</span>
+        </button>
+      </nav>
+
+      <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" data-menu-toggle>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="mega-menu" data-mega-menu>
+        <div class="mega-menu__intro">
+          <span class="eyebrow">Коллекции Mabon</span>
+          <p>Фарфор как форма памяти, движения и личного пространства.</p>
+        </div>
+        <div class="mega-menu__links">
+          <a href="collection.html?collection=moments"><span>01</span> Мгновения</a>
+          <a href="collection.html?collection=motya"><span>02</span> Motya MABON</a>
+          <a href="collection.html?collection=winter"><span>03</span> Хранители Зимы</a>
+        </div>
+        <a class="mega-menu__all" href="index.html#collections">
+          Смотреть все
+          <svg aria-hidden="true" viewBox="0 0 24 12"><path d="M0 6h22M17 1l5 5-5 5" /></svg>
+        </a>
+      </div>
+    </header>
+
+    <div class="mobile-menu" aria-hidden="true" data-mobile-menu>
+      <nav aria-label="Мобильная навигация">
+        <a href="index.html#collections"><span>01</span> Коллекции</a>
+        <a href="index.html#collections"><span>02</span> Каталог</a>
+        <a href="about.html" aria-current="page"><span>03</span> О нас</a>
+        <a href="index.html#b2b"><span>04</span> B2B</a>
+        <a href="#contact"><span>05</span> Контакты</a>
+      </nav>
+      <div class="mobile-menu__foot">
+        <a href="tel:+79268635973">+7 (926) 863-59-73</a>
+        <a href="mailto:info@farfor-pro.com">info@farfor-pro.com</a>
+      </div>
+    </div>
+
+    <main id="main">
+      <section class="about-hero" id="top" aria-labelledby="about-page-title">
+        <img
+          class="about-hero__image"
+          src="assets/craft-tradition.jpg"
+          alt="Мастер Mabon работает над скульптурной формой в фарфоровой мастерской"
+          width="1280"
+          height="853"
+          fetchpriority="high"
+        />
+        <div class="about-hero__veil"></div>
+        <div class="about-hero__copy">
+          <p>Москва · с 2016 года</p>
+          <h1 id="about-page-title">О нас</h1>
+          <span>Создаём фарфор, который становится частью личной истории.</span>
+        </div>
+        <a class="about-hero__scroll" href="#philosophy" aria-label="Перейти к философии Mabon">
+          <span>Ниже</span>
+          <i aria-hidden="true"></i>
+        </a>
+      </section>
+
+      <section class="about-philosophy" id="philosophy" aria-labelledby="philosophy-title">
+        <div class="about-band-label reveal">
+          <span>01 / Наша философия</span>
+          <span>Material — Memory</span>
+        </div>
+        <div class="about-philosophy__content reveal" data-delay="1">
+          <p class="eyebrow">Mabon / манифест</p>
+          <h2 id="philosophy-title">Форма начинается<br />с ощущения</h2>
+          <p>
+            Мы создаём керамику как тихое присутствие в доме — предметы, в которых точность ремесла
+            сохраняет тепло рук, а материал продолжает жить рядом с человеком.
+          </p>
+          <blockquote>«Фарфор — это диалог между землёй, огнём и человеком».</blockquote>
+        </div>
+      </section>
+
+      <section class="about-story" aria-labelledby="story-title">
+        <div class="about-band-label reveal">
+          <span>02 / Наша история</span>
+          <span>Past — Present</span>
+        </div>
+        <div class="about-story__layout">
+          <div class="about-story__copy reveal">
+            <p class="eyebrow">От мастерской к бренду</p>
+            <h2 id="story-title">Наша история</h2>
+            <p>
+              Mabon вырос из небольшой московской мастерской, где скульпторы и технологи искали
+              современный язык для классического фарфора. Первые объекты создавались медленно —
+              через десятки эскизов, проб и обжигов.
+            </p>
+            <p>
+              Сегодня мы по-прежнему сохраняем этот ритм: соединяем ремесленную точность с живой
+              пластикой формы и выпускаем небольшие серии, в которых чувствуется авторский жест.
+            </p>
+          </div>
+          <figure class="about-story__media reveal" data-delay="1">
+            <img
+              src="assets/collection-installation.webp"
+              alt="Экспозиция Mabon с фарфоровыми объектами и эскизами"
+              width="2200"
+              height="1238"
+              loading="lazy"
+            />
+            <figcaption>Мастерская и архив Mabon · Москва</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="about-production" aria-labelledby="production-title">
+        <div class="about-band-label reveal">
+          <span>03 / Производство</span>
+          <span>Manufacturing Process</span>
+        </div>
+        <div class="about-production__intro reveal">
+          <p class="eyebrow">Четыре этапа</p>
+          <h2 id="production-title">От замысла<br />до обжига</h2>
+          <p>Каждый объект проходит через руки мастеров и сохраняет едва заметные следы живой работы.</p>
+        </div>
+
+        <div class="production-grid">
+          <article class="production-step reveal">
+            <div class="production-step__image">
+              <img src="assets/craft-process.webp" alt="Создание скульптурной модели вручную" width="765" height="1080" loading="lazy" />
+              <span>01</span>
+            </div>
+            <h3>Модель и форма</h3>
+            <p>Скульптор уточняет пластику и создаёт гипсовую форму для будущего объекта.</p>
+          </article>
+          <article class="production-step reveal" data-delay="1">
+            <div class="production-step__image">
+              <img src="assets/craft-tradition.jpg" alt="Ручная доработка фарфоровой формы" width="1280" height="853" loading="lazy" />
+              <span>02</span>
+            </div>
+            <h3>Литьё и сушка</h3>
+            <p>Жидкий фарфор набирает толщину в форме, после чего изделие медленно высыхает.</p>
+          </article>
+          <article class="production-step reveal" data-delay="2">
+            <div class="production-step__image">
+              <img src="assets/collection-forms.webp" alt="Белые фарфоровые объекты после глазуровки" width="1704" height="923" loading="lazy" />
+              <span>03</span>
+            </div>
+            <h3>Глазуровка</h3>
+            <p>Поверхность получает глубину и свет через ручное нанесение прозрачной глазури.</p>
+          </article>
+          <article class="production-step reveal">
+            <div class="production-step__image">
+              <img src="assets/hero-moments.webp" alt="Готовые фарфоровые скульптуры Mabon" width="1672" height="941" loading="lazy" />
+              <span>04</span>
+            </div>
+            <h3>Обжиг</h3>
+            <p>Высокая температура завершает превращение материала и раскрывает финальный оттенок.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="about-team" aria-labelledby="team-title">
+        <div class="about-band-label reveal">
+          <span>04 / Наша команда</span>
+          <span>People Behind Mabon</span>
+        </div>
+        <div class="about-team__intro reveal">
+          <p class="eyebrow">Люди мастерской</p>
+          <h2 id="team-title">Люди, которые<br />создают Mabon</h2>
+          <p>Мастера, дизайнеры и художники, объединённые вниманием к материалу и каждой детали.</p>
+        </div>
+
+        <div class="team-grid">
+          <article class="team-member reveal" tabindex="0" aria-label="Елена Воронова, основатель и арт-директор">
+            <img src="assets/team-elena.jpg" alt="Елена Воронова в мастерской Mabon" width="1122" height="1402" loading="lazy" />
+            <div class="team-member__overlay">
+              <h3>Елена Воронова</h3>
+              <p>Основатель / арт-директор</p>
+            </div>
+          </article>
+          <article class="team-member reveal" tabindex="0" data-delay="1" aria-label="Михаил Лебедев, мастер-технолог">
+            <img src="assets/team-mikhail.jpg" alt="Михаил Лебедев в мастерской Mabon" width="1122" height="1402" loading="lazy" />
+            <div class="team-member__overlay">
+              <h3>Михаил Лебедев</h3>
+              <p>Мастер-технолог</p>
+            </div>
+          </article>
+          <article class="team-member reveal" tabindex="0" data-delay="2" aria-label="Анна Рубцова, скульптор">
+            <img src="assets/team-anna.jpg" alt="Анна Рубцова в мастерской Mabon" width="1122" height="1402" loading="lazy" />
+            <div class="team-member__overlay">
+              <h3>Анна Рубцова</h3>
+              <p>Скульптор</p>
+            </div>
+          </article>
+          <article class="team-member reveal" tabindex="0" aria-label="Павел Орлов, предметный дизайнер">
+            <img src="assets/team-pavel.jpg" alt="Павел Орлов в мастерской Mabon" width="1122" height="1402" loading="lazy" />
+            <div class="team-member__overlay">
+              <h3>Павел Орлов</h3>
+              <p>Предметный дизайнер</p>
+            </div>
+          </article>
+          <article class="team-member reveal" tabindex="0" data-delay="1" aria-label="София Миллер, художник по глазурям">
+            <img src="assets/team-sofia.jpg" alt="София Миллер в мастерской Mabon" width="1122" height="1402" loading="lazy" />
+            <div class="team-member__overlay">
+              <h3>София Миллер</h3>
+              <p>Художник по глазурям</p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" id="contact" aria-label="Контакты Mabon">
+      <div class="footer__callback">
+        <form class="callback-form" data-callback-form>
+          <fieldset class="callback-form__methods">
+            <legend>Как с вами связаться?</legend>
+            <div>
+              <label><input type="radio" name="callback-method" value="email" checked /><span>Email</span></label>
+              <label><input type="radio" name="callback-method" value="phone" /><span>По телефону</span></label>
+            </div>
+          </fieldset>
+          <div class="callback-form__entry">
+            <label class="visually-hidden" for="callback-contact" data-callback-label>Электронная почта</label>
+            <input id="callback-contact" name="contact" type="email" autocomplete="email" placeholder="Ваш email" required data-callback-input />
+            <button type="submit">Отправить <span aria-hidden="true">↗</span></button>
+          </div>
+          <p class="callback-form__status" role="status" aria-live="polite" data-callback-status></p>
+        </form>
+
+        <div class="footer__account footer__account--featured">
+          <span>Личный кабинет</span>
+          <p>Сохраняйте избранное и следите за статусом заказов.</p>
+          <a class="js-placeholder" href="#" data-toast-message="Регистрация будет доступна в полной версии сайта">Зарегистрироваться ↗</a>
+        </div>
+      </div>
+
+      <div class="footer__directory">
+        <div class="footer__contact-block">
+          <span>Контакты</span>
+          <a href="tel:+79268635973">+7 (926) 863-59-73</a>
+          <a href="mailto:info@farfor-pro.com">info@farfor-pro.com</a>
+        </div>
+        <div class="footer__brand">
+          <a class="footer__mark" href="#top" aria-label="Mabon, наверх">Mabon</a>
+        </div>
+        <div class="footer__socials" aria-label="Социальные сети">
+          <a class="js-placeholder" href="#" aria-label="Telegram" data-toast-message="Telegram будет доступен в полной версии сайта">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path fill="currentColor" d="M9.8 15.5 9.4 20c.55 0 .8-.24 1.08-.53l2.59-2.48 5.37 3.93c.98.55 1.68.26 1.95-.91L23.92 3.5c.36-1.44-.55-2.1-1.49-1.75L1.7 9.75c-1.42.55-1.4 1.33-.24 1.68l5.3 1.65L19.05 5.3c.58-.35 1.11-.16.68.22Z" /></svg>
+          </a>
+          <a class="js-placeholder" href="#" aria-label="Instagram" data-toast-message="Instagram будет доступен в полной версии сайта">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4.25" /><circle cx="17.4" cy="6.7" r="1" fill="currentColor" stroke="none" /></svg>
+          </a>
+          <a class="js-placeholder" href="#" aria-label="Pinterest" data-toast-message="Pinterest будет доступен в полной версии сайта">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-3.64 19.31c-.08-1.64-.02-3.6.41-5.46l1.29-5.44s-.33-.66-.33-1.63c0-1.52.89-2.66 1.98-2.66.93 0 1.38.7 1.38 1.55 0 .94-.59 2.34-.9 3.64-.25 1.09.55 1.98 1.63 1.98 1.95 0 3.45-2.06 3.45-5.03 0-2.63-1.89-4.47-4.58-4.47-3.12 0-4.95 2.34-4.95 4.76 0 .94.36 1.95.81 2.5.09.11.1.2.07.31l-.3 1.27c-.05.2-.17.24-.39.15-1.46-.68-2.37-2.8-2.37-4.51 0-3.68 2.67-7.06 7.7-7.06 4.05 0 7.2 2.88 7.2 6.73 0 4.02-2.53 7.25-6.05 7.25-1.18 0-2.29-.61-2.67-1.34l-.73 2.76c-.26 1.01-.98 2.28-1.46 3.05A10 10 0 1 0 12 2Z" /></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer__meta">
+        <span>© <span data-year></span> Mabon</span>
+        <div>
+          <a class="js-placeholder" href="#">Политика конфиденциальности</a>
+          <a class="js-placeholder" href="#">Публичная оферта</a>
+        </div>
+      </div>
+    </footer>
+
+    <div class="toast" role="status" aria-live="polite" data-toast>
+      <span data-toast-message>Раздел будет доступен в полной версии сайта</span>
+    </div>
+    <script src="script.js?v=20260810-1"></script>
+  </body>
+</html>
