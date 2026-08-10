@@ -335,11 +335,11 @@ document.querySelector("[data-gallery-next]")?.addEventListener("click", () => {
 });
 
 const productDescriptionToggle = document.querySelector("[data-product-description-toggle]");
-productDescriptionToggle?.addEventListener("click", () => {
-  const expanded = productDescriptionToggle.getAttribute("aria-expanded") === "true";
-  productDescriptionToggle.setAttribute("aria-expanded", String(!expanded));
-  if (productMore) productMore.hidden = expanded;
-  productDescriptionToggle.textContent = expanded ? "Читать дальше" : "Скрыть текст";
+window.setupExpandableText?.({
+  toggle: productDescriptionToggle,
+  content: productMore,
+  collapsedLabel: "Читать дальше",
+  expandedLabel: "Скрыть текст"
 });
 
 function setQuantity(nextQuantity) {
@@ -415,21 +415,6 @@ relatedNames[activeProductCollectionKey].forEach((name, index) => {
   link.append(imageWrap, meta);
   article.append(link);
   relatedTrack.append(article);
-});
-
-const relatedViewport = document.querySelector(".product-related__viewport");
-function getRelatedStep() {
-  const firstCard = relatedTrack?.querySelector(".related-product");
-  if (!firstCard || !relatedTrack) return 0;
-  const gap = Number.parseFloat(getComputedStyle(relatedTrack).columnGap) || 0;
-  return firstCard.getBoundingClientRect().width + gap;
-}
-
-document.querySelector("[data-related-prev]")?.addEventListener("click", () => {
-  relatedViewport?.scrollBy({ left: -getRelatedStep(), behavior: "smooth" });
-});
-document.querySelector("[data-related-next]")?.addEventListener("click", () => {
-  relatedViewport?.scrollBy({ left: getRelatedStep(), behavior: "smooth" });
 });
 
 setVariant(0);

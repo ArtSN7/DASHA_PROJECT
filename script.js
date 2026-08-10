@@ -51,6 +51,48 @@ function showToast(message = "Раздел будет доступен в пол
   toastTimer = window.setTimeout(() => toast.classList.remove("is-visible"), 2600);
 }
 
+window.setupExpandableText = ({ toggle, content, collapsedLabel, expandedLabel }) => {
+  if (!toggle || !content) return;
+
+  content.classList.add("expandable-copy");
+  content.hidden = false;
+  content.setAttribute("aria-hidden", "true");
+  content.style.height = "0px";
+
+  content.addEventListener("transitionend", (event) => {
+    if (event.propertyName === "height" && toggle.getAttribute("aria-expanded") === "true") {
+      content.style.height = "auto";
+    }
+  });
+
+  toggle.addEventListener("click", () => {
+    const willExpand = toggle.getAttribute("aria-expanded") !== "true";
+    toggle.setAttribute("aria-expanded", String(willExpand));
+    toggle.textContent = willExpand ? expandedLabel : collapsedLabel;
+    content.setAttribute("aria-hidden", String(!willExpand));
+
+    if (reducedMotion) {
+      content.classList.toggle("is-expanded", willExpand);
+      content.style.height = willExpand ? "auto" : "0px";
+      return;
+    }
+
+    if (willExpand) {
+      content.classList.add("is-expanded");
+      window.requestAnimationFrame(() => {
+        content.style.height = `${content.scrollHeight}px`;
+      });
+      return;
+    }
+
+    content.style.height = `${content.scrollHeight}px`;
+    window.requestAnimationFrame(() => {
+      content.classList.remove("is-expanded");
+      content.style.height = "0px";
+    });
+  });
+};
+
 function configureCallbackField(method) {
   if (!callbackInput || !callbackLabel) return;
 

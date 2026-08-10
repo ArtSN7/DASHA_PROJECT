@@ -79,17 +79,16 @@ document.querySelectorAll("[data-product-link]").forEach((link, index) => {
   link.setAttribute("aria-label", `Открыть товар ${collection.products[index]}`);
 });
 
-function setupExpandable(toggleSelector, contentElement, collapsedLabel, expandedLabel) {
-  const toggle = document.querySelector(toggleSelector);
-  if (!toggle || !contentElement) return;
+window.setupExpandableText?.({
+  toggle: document.querySelector("[data-story-toggle]"),
+  content: collectionMore,
+  collapsedLabel: "Читать дальше",
+  expandedLabel: "Скрыть текст"
+});
 
-  toggle.addEventListener("click", () => {
-    const expanded = toggle.getAttribute("aria-expanded") === "true";
-    toggle.setAttribute("aria-expanded", String(!expanded));
-    contentElement.hidden = expanded;
-    toggle.textContent = expanded ? collapsedLabel : expandedLabel;
-  });
-}
-
-setupExpandable("[data-story-toggle]", collectionMore, "Читать дальше", "Скрыть текст");
-setupExpandable("[data-author-toggle]", authorMore, "Читать подробнее", "Скрыть текст");
+window.setupExpandableText?.({
+  toggle: document.querySelector("[data-author-toggle]"),
+  content: authorMore,
+  collapsedLabel: "Читать подробнее",
+  expandedLabel: "Скрыть текст"
+});
