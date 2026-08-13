@@ -302,7 +302,6 @@ productVariants.forEach((variant, index) => {
   const input = document.createElement("input");
   const content = document.createElement("span");
   const circle = document.createElement("i");
-  const number = document.createElement("small");
   const name = document.createElement("b");
 
   label.className = "product-variant";
@@ -313,9 +312,7 @@ productVariants.forEach((variant, index) => {
   input.setAttribute("aria-label", variant.name);
   content.className = "product-variant__content";
   circle.style.setProperty("--variant-color", variant.color);
-  number.textContent = String(index + 1).padStart(2, "0");
   name.textContent = variant.name;
-  circle.append(number);
   content.append(circle, name);
   label.append(input, content);
   input.addEventListener("change", () => {
