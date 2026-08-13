@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Корзина и оформление заказа Mabon." />
+    <meta name="theme-color" content="#fbf4ed" />
+    <title>Корзина — Mabon</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect width=%2264%22 height=%2264%22 fill=%22%23fbf4ed%22/><text x=%2210%22 y=%2245%22 font-size=%2243%22 font-family=%22serif%22>M</text></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css?v=20260814-7" />
+  </head>
+  <body class="checkout-page">
+    <a class="skip-link" href="#main">Перейти к содержанию</a>
+
+    <header class="site-header site-header--inner" data-header>
+      <div class="header-progress" data-progress></div>
+      <nav class="desktop-nav desktop-nav--left" aria-label="Основная навигация">
+        <div class="nav-dropdown" data-dropdown>
+          <button class="nav-link nav-link--button" type="button" aria-expanded="false" data-dropdown-button>
+            Коллекции
+            <svg aria-hidden="true" viewBox="0 0 12 7"><path d="M1 1l5 5 5-5" /></svg>
+          </button>
+        </div>
+        <a class="nav-link" href="index.html#collections">Каталог</a>
+        <a class="nav-link" href="about.html">О нас</a>
+      </nav>
+
+      <a class="wordmark" href="index.html#top" aria-label="Mabon, на главную">Mabon</a>
+
+      <nav class="desktop-nav desktop-nav--right" aria-label="Дополнительная навигация">
+        <a class="nav-link" href="index.html#b2b">B2B</a>
+        <a class="nav-link" href="#checkout-contact">Контакты</a>
+        <div class="header-actions">
+          <a class="icon-link account-link js-placeholder" href="#" aria-label="Личный кабинет" data-toast-message="Личный кабинет будет доступен в полной версии сайта">
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <circle cx="12" cy="8" r="3.25" />
+              <path d="M5.75 19c.45-3.4 2.55-5.25 6.25-5.25S17.8 15.6 18.25 19" />
+            </svg>
+          </a>
+          <button class="icon-link bag-link" type="button" aria-label="Корзина, 0 товаров" aria-expanded="false" data-bag-button>
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5.5 8.5h13l-1 11h-11l-1-11Z" /><path d="M9 9V6.5a3 3 0 0 1 6 0V9" /></svg>
+            <span data-bag-count>0</span>
+          </button>
+        </div>
+      </nav>
+
+      <div class="mobile-header-actions">
+        <button class="icon-link bag-link bag-link--mobile" type="button" aria-label="Корзина, 0 товаров" aria-expanded="false" data-bag-button>
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5.5 8.5h13l-1 11h-11l-1-11Z" /><path d="M9 9V6.5a3 3 0 0 1 6 0V9" /></svg>
+          <span data-bag-count>0</span>
+        </button>
+        <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" data-menu-toggle>
+          <span></span><span></span>
+        </button>
+      </div>
+
+      <div class="mega-menu" data-mega-menu>
+        <div class="mega-menu__intro">
+          <span class="eyebrow">Коллекции Mabon</span>
+          <p>Фарфор как форма памяти, движения и личного пространства.</p>
+        </div>
+        <div class="mega-menu__links">
+          <a href="collection.html?collection=moments"><span>01</span> Мгновения</a>
+          <a href="collection.html?collection=motya"><span>02</span> Motya MABON</a>
+          <a href="collection.html?collection=winter"><span>03</span> Хранители Зимы</a>
+        </div>
+        <a class="mega-menu__all" href="index.html#collections">Смотреть все <svg aria-hidden="true" viewBox="0 0 24 12"><path d="M0 6h22M17 1l5 5-5 5" /></svg></a>
+      </div>
+    </header>
+
+    <div class="mobile-menu" aria-hidden="true" data-mobile-menu>
+      <nav aria-label="Мобильная навигация">
+        <a href="index.html#collections"><span>01</span> Коллекции</a>
+        <a href="index.html#collections"><span>02</span> Каталог</a>
+        <a href="about.html"><span>03</span> О нас</a>
+        <a href="index.html#b2b"><span>04</span> B2B</a>
+        <a href="#checkout-contact"><span>05</span> Контакты</a>
+        <a class="js-placeholder" href="#" data-toast-message="Личный кабинет будет доступен в полной версии сайта"><span>06</span> Личный кабинет</a>
+      </nav>
+      <div class="mobile-menu__foot">
+        <a href="tel:+79268635973">+7 (926) 863-59-73</a>
+        <a href="mailto:info@farfor-pro.com">info@farfor-pro.com</a>
+      </div>
+    </div>
+
+    <main class="checkout-main" id="main">
+      <section class="checkout-hero" aria-labelledby="checkout-title">
+        <div class="checkout-hero__copy">
+          <span>Оформление заказа</span>
+          <h1 id="checkout-title">Ваша корзина</h1>
+        </div>
+        <p class="checkout-hero__count"><span data-checkout-position-count>0</span> <span data-checkout-position-label>позиций</span></p>
+      </section>
+
+      <section class="checkout-layout" aria-label="Корзина и оформление заказа">
+        <div class="checkout-cart-column">
+          <span class="checkout-column-label">01 / Состав заказа</span>
+
+          <div class="checkout-items" data-checkout-items></div>
+
+          <div class="checkout-empty" hidden data-checkout-empty>
+            <h2>Корзина пока пуста</h2>
+            <p>Выберите фарфоровый объект и вариант исполнения — он появится здесь и сохранится для оформления.</p>
+            <a class="checkout-primary-button" href="index.html#collections">Перейти в каталог</a>
+          </div>
+
+          <div class="checkout-summary" data-checkout-summary>
+            <div class="checkout-summary__total">
+              <span>Полная сумма</span>
+              <strong data-checkout-total>0 ₽</strong>
+            </div>
+            <a class="checkout-primary-button" href="#checkout-form">Оформить заказ</a>
+          </div>
+        </div>
+
+        <aside class="checkout-order" id="checkout-form" aria-labelledby="checkout-form-title">
+          <span class="checkout-order__eyebrow">02 / Данные заказа</span>
+          <h2 id="checkout-form-title">Оформление заказа</h2>
+
+          <div class="checkout-order__tabs" role="tablist" aria-label="Способ оформления">
+            <button class="is-active" type="button" role="tab" aria-selected="true" data-checkout-tab="guest">Как гость</button>
+            <button class="js-placeholder" type="button" role="tab" aria-selected="false" data-checkout-tab="account" data-toast-message="Вход в аккаунт будет доступен в полной версии сайта">Войти в аккаунт</button>
+          </div>
+
+          <form data-checkout-form novalidate>
+            <div class="checkout-fields">
+              <label class="checkout-field">
+                <span>Телефон</span>
+                <input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required />
+              </label>
+              <label class="checkout-field">
+                <span>Email</span>
+                <input name="email" type="email" autocomplete="email" placeholder="name@example.com" required />
+              </label>
+              <label class="checkout-field">
+                <span>ФИО</span>
+                <input name="fullname" type="text" autocomplete="name" placeholder="Иванов Иван Иванович" required />
+              </label>
+              <label class="checkout-field">
+                <span>Адрес доставки</span>
+                <textarea name="address" autocomplete="street-address" placeholder="Улица, дом, квартира, город" required></textarea>
+              </label>
+            </div>
+
+            <fieldset class="checkout-options">
+              <legend>Способ доставки</legend>
+              <label class="checkout-option">
+                <input type="radio" name="delivery" value="courier" checked />
+                <span class="checkout-option__dot" aria-hidden="true"></span>
+                <span class="checkout-option__copy">Курьером<small>Москва и Московская область · стоимость подтвердит менеджер</small></span>
+              </label>
+              <label class="checkout-option">
+                <input type="radio" name="delivery" value="pickup" />
+                <span class="checkout-option__dot" aria-hidden="true"></span>
+                <span class="checkout-option__copy">Самовывоз<small>Из шоурума Mabon по предварительной записи</small></span>
+              </label>
+            </fieldset>
+
+            <fieldset class="checkout-options">
+              <legend>Способ оплаты</legend>
+              <label class="checkout-option">
+                <input type="radio" name="payment" value="card" checked />
+                <span class="checkout-option__dot" aria-hidden="true"></span>
+                <span class="checkout-option__copy">Картой</span>
+              </label>
+              <label class="checkout-option">
+                <input type="radio" name="payment" value="b2b" />
+                <span class="checkout-option__dot" aria-hidden="true"></span>
+                <span class="checkout-option__copy">Согласование счёта<small>Для юридических лиц и B2B-заказов</small></span>
+              </label>
+            </fieldset>
+
+            <button class="checkout-primary-button" type="submit" data-checkout-submit>Оформить заказ</button>
+            <p class="checkout-order__status" role="status" aria-live="polite" data-checkout-status></p>
+          </form>
+        </aside>
+      </section>
+
+      <section class="checkout-info" aria-labelledby="checkout-info-title">
+        <div class="checkout-info__head">
+          <span>03 / Важно знать</span>
+          <h2 id="checkout-info-title">Доставка, оплата и бережный уход</h2>
+        </div>
+
+        <details class="checkout-detail" open>
+          <summary>
+            <svg class="checkout-detail__icon" aria-hidden="true" viewBox="0 0 32 24"><path d="M1 5h19v14H1zM20 10h6l5 5v4H20zM7 22a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM25 22a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" /></svg>
+            <strong>Информация о доставке</strong>
+            <span class="checkout-detail__toggle" aria-hidden="true"></span>
+          </summary>
+          <div class="checkout-detail__content">Каждый объект упаковывается вручную. Стоимость и дату доставки по Москве, области или в другой город менеджер согласует с вами после получения заказа.</div>
+        </details>
+
+        <details class="checkout-detail">
+          <summary>
+            <svg class="checkout-detail__icon" aria-hidden="true" viewBox="0 0 32 24"><rect x="1" y="3" width="30" height="19" rx="2" /><path d="M1 9h30M6 17h7" /></svg>
+            <strong>Информация об оплате</strong>
+            <span class="checkout-detail__toggle" aria-hidden="true"></span>
+          </summary>
+          <div class="checkout-detail__content">После подтверждения наличия или срока изготовления мы отправим безопасную ссылку на оплату. Для B2B-заказов подготовим счёт и комплект документов.</div>
+        </details>
+
+        <details class="checkout-detail">
+          <summary>
+            <svg class="checkout-detail__icon" aria-hidden="true" viewBox="0 0 32 24"><path d="M16 22c7-4 10-9 10-15-5 0-8-2-10-5-2 3-5 5-10 5 0 6 3 11 10 15Z" /><path d="m11 12 3 3 7-7" /></svg>
+            <strong>Гарантия сохранности</strong>
+            <span class="checkout-detail__toggle" aria-hidden="true"></span>
+          </summary>
+          <div class="checkout-detail__content">Перед отправкой мы проверяем изделие и фиксируем упаковку. Если объект пострадал при доставке, свяжитесь с нами в течение 24 часов — мы поможем решить вопрос.</div>
+        </details>
+      </section>
+    </main>
+
+    <footer class="footer checkout-footer" id="checkout-contact" aria-label="Контакты Mabon">
+      <div class="footer__directory">
+        <div class="footer__contact-block">
+          <span>Контакты</span>
+          <a href="tel:+79268635973">+7 (926) 863-59-73</a>
+          <a href="mailto:info@farfor-pro.com">info@farfor-pro.com</a>
+        </div>
+        <div class="footer__brand"><a class="footer__mark" href="index.html#top" aria-label="Mabon, на главную">Mabon</a></div>
+        <div class="footer__socials" aria-label="Социальные сети">
+          <a class="js-placeholder" href="#" aria-label="Telegram" data-toast-message="Telegram будет доступен в полной версии сайта"><svg aria-hidden="true" viewBox="0 0 24 24"><path fill="currentColor" d="M9.8 15.5 9.4 20c.55 0 .8-.24 1.08-.53l2.59-2.48 5.37 3.93c.98.55 1.68.26 1.95-.91L23.92 3.5c.36-1.44-.55-2.1-1.49-1.75L1.7 9.75c-1.42.55-1.4 1.33-.24 1.68l5.3 1.65L19.05 5.3c.58-.35 1.11-.16.68.22Z" /></svg></a>
+          <a class="js-placeholder" href="#" aria-label="Instagram" data-toast-message="Instagram будет доступен в полной версии сайта"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4.25" /><circle cx="17.4" cy="6.7" r="1" fill="currentColor" stroke="none" /></svg></a>
+          <a class="js-placeholder" href="#" aria-label="Pinterest" data-toast-message="Pinterest будет доступен в полной версии сайта"><svg aria-hidden="true" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-3.64 19.31c-.08-1.64-.02-3.6.41-5.46l1.29-5.44s-.33-.66-.33-1.63c0-1.52.89-2.66 1.98-2.66.93 0 1.38.7 1.38 1.55 0 .94-.59 2.34-.9 3.64-.25 1.09.55 1.98 1.63 1.98 1.95 0 3.45-2.06 3.45-5.03 0-2.63-1.89-4.47-4.58-4.47-3.12 0-4.95 2.34-4.95 4.76 0 .94.36 1.95.81 2.5.09.11.1.2.07.31l-.3 1.27c-.05.2-.17.24-.39.15-1.46-.68-2.37-2.8-2.37-4.51 0-3.68 2.67-7.06 7.7-7.06 4.05 0 7.2 2.88 7.2 6.73 0 4.02-2.53 7.25-6.05 7.25-1.18 0-2.29-.61-2.67-1.34l-.73 2.76c-.26 1.01-.98 2.28-1.46 3.05A10 10 0 1 0 12 2Z" /></svg></a>
+        </div>
+      </div>
+      <div class="footer__meta">
+        <span>© <span data-year></span> Mabon</span>
+        <div><a class="js-placeholder" href="#">Политика конфиденциальности</a><a class="js-placeholder" href="#">Публичная оферта</a></div>
+      </div>
+    </footer>
+
+    <div class="toast" role="status" aria-live="polite" data-toast><span data-toast-message>Раздел будет доступен в полной версии сайта</span></div>
+
+    <script src="cart.js?v=20260814-2"></script>
+    <script src="script.js?v=20260814-2"></script>
+    <script src="checkout.js?v=20260814-1"></script>
+  </body>
+</html>

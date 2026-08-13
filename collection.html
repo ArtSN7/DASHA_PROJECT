@@ -16,7 +16,7 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&amp;display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=20260814-4" />
+    <link rel="stylesheet" href="styles.css?v=20260814-7" />
   </head>
   <body class="collection-detail-page">
     <a class="skip-link" href="#main">Перейти к содержанию</a>
@@ -48,20 +48,26 @@
               <path d="M5.75 19c.45-3.4 2.55-5.25 6.25-5.25S17.8 15.6 18.25 19" />
             </svg>
           </a>
-          <button class="icon-link js-placeholder bag-link" type="button" aria-label="Корзина, 0 товаров">
+          <button class="icon-link bag-link" type="button" aria-label="Корзина, 0 товаров" aria-expanded="false" data-bag-button>
             <svg aria-hidden="true" viewBox="0 0 24 24">
               <path d="M5.5 8.5h13l-1 11h-11l-1-11Z" />
               <path d="M9 9V6.5a3 3 0 0 1 6 0V9" />
             </svg>
-            <span>0</span>
+            <span data-bag-count>0</span>
           </button>
         </div>
       </nav>
 
-      <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" data-menu-toggle>
-        <span></span>
-        <span></span>
-      </button>
+      <div class="mobile-header-actions">
+        <button class="icon-link bag-link bag-link--mobile" type="button" aria-label="Корзина, 0 товаров" aria-expanded="false" data-bag-button>
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5.5 8.5h13l-1 11h-11l-1-11Z" /><path d="M9 9V6.5a3 3 0 0 1 6 0V9" /></svg>
+          <span data-bag-count>0</span>
+        </button>
+        <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" data-menu-toggle>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
 
       <div class="mega-menu" data-mega-menu>
         <div class="mega-menu__intro">
@@ -362,6 +368,7 @@
       <span data-toast-message>Раздел будет доступен в полной версии сайта</span>
     </div>
 
+    <script src="cart.js?v=20260814-2"></script>
     <script src="script.js?v=20260814-2"></script>
     <script src="collection-page.js?v=20260814-1"></script>
   </body>

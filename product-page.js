@@ -163,7 +163,6 @@ const galleryThumbnails = document.querySelector("[data-gallery-thumbnails]");
 const variantOptions = document.querySelector("[data-variant-options]");
 const productQuantity = document.querySelector("[data-product-quantity]");
 const quantityMinus = document.querySelector("[data-quantity-minus]");
-const bagCount = document.querySelector("[data-bag-count]");
 const bagButton = document.querySelector("[data-bag-button]");
 const addToCartButton = document.querySelector("[data-add-to-cart]");
 
@@ -196,6 +195,27 @@ let addAnimationTimer;
 
 function formatPrice(value) {
   return `${new Intl.NumberFormat("ru-RU").format(value)} ₽`;
+}
+
+function getActiveVariantPrice() {
+  const variant = productVariants[activeVariantIndex];
+  return activeProductCollection.basePrice + (activeProductIndex * 4500) + variant.priceDelta;
+}
+
+function getActiveCartItem() {
+  const variant = productVariants[activeVariantIndex];
+  return {
+    id: `${activeProductCollectionKey}:${activeProductIndex}:${variant.key}`,
+    collectionKey: activeProductCollectionKey,
+    productIndex: activeProductIndex,
+    name: activeProduct.name,
+    collection: activeProductCollection.name,
+    variantKey: variant.key,
+    variantName: variant.name,
+    price: getActiveVariantPrice(),
+    image: variant.image,
+    url: `product.html?collection=${activeProductCollectionKey}&product=${activeProductIndex}`
+  };
 }
 
 function createGalleryFrames() {
@@ -291,9 +311,10 @@ function setVariant(index) {
 
   const variant = productVariants[activeVariantIndex];
   if (productPrice) {
-    productPrice.textContent = formatPrice(activeProductCollection.basePrice + (activeProductIndex * 4500) + variant.priceDelta);
+    productPrice.textContent = formatPrice(getActiveVariantPrice());
   }
   if (detailMaterial) detailMaterial.textContent = variant.material;
+  syncProductQuantity();
 }
 
 productVariants.forEach((variant, index) => {
@@ -340,13 +361,23 @@ window.setupExpandableText?.({
   expandedLabel: "Скрыть текст"
 });
 
-function setQuantity(nextQuantity) {
-  quantity = Math.max(0, nextQuantity);
+function updateProductQuantityUi() {
   if (productQuantity) productQuantity.value = String(quantity);
-  if (bagCount) bagCount.textContent = String(quantity);
   if (quantityMinus) quantityMinus.disabled = quantity === 0;
   if (addToCartButton) addToCartButton.textContent = quantity > 0 ? "Добавить ещё" : "Добавить в корзину";
-  if (bagButton) bagButton.setAttribute("aria-label", `Корзина, ${quantity} ${quantity === 1 ? "товар" : "товаров"}`);
+}
+
+function syncProductQuantity() {
+  quantity = window.MabonCart?.getQuantity(getActiveCartItem().id) || 0;
+  updateProductQuantityUi();
+}
+
+function setQuantity(nextQuantity) {
+  quantity = Math.max(0, nextQuantity);
+  if (window.MabonCart) {
+    window.MabonCart.setItemQuantity(getActiveCartItem(), quantity);
+  }
+  updateProductQuantityUi();
 }
 
 function playAddAnimation() {
@@ -368,11 +399,17 @@ function playAddAnimation() {
 }
 
 addToCartButton?.addEventListener("click", () => {
-  setQuantity(quantity + 1);
+  if (window.MabonCart) {
+    window.MabonCart.addItem(getActiveCartItem(), 1, { preview: true });
+    syncProductQuantity();
+  } else {
+    setQuantity(quantity + 1);
+  }
   playAddAnimation();
 });
 document.querySelector("[data-quantity-plus]")?.addEventListener("click", () => setQuantity(quantity + 1));
 quantityMinus?.addEventListener("click", () => setQuantity(quantity - 1));
+window.addEventListener("mabon-cart-change", syncProductQuantity);
 
 document.querySelectorAll("[data-disclosure-trigger]").forEach((trigger) => {
   const panel = document.getElementById(trigger.getAttribute("aria-controls"));
@@ -437,4 +474,3 @@ relatedNames[activeProductCollectionKey].forEach((name, index) => {
 });
 
 setVariant(0);
-setQuantity(0);
