@@ -192,6 +192,7 @@ let galleryIndex = 0;
 let galleryFrames = [];
 let quantity = 0;
 let imageChangeTimer;
+let addAnimationTimer;
 
 function formatPrice(value) {
   return `${new Intl.NumberFormat("ru-RU").format(value)} ₽`;
@@ -348,7 +349,28 @@ function setQuantity(nextQuantity) {
   if (bagButton) bagButton.setAttribute("aria-label", `Корзина, ${quantity} ${quantity === 1 ? "товар" : "товаров"}`);
 }
 
-addToCartButton?.addEventListener("click", () => setQuantity(quantity + 1));
+function playAddAnimation() {
+  if (!addToCartButton) return;
+
+  window.clearTimeout(addAnimationTimer);
+  addToCartButton.classList.remove("is-added");
+  bagButton?.classList.remove("is-updated");
+  void addToCartButton.offsetWidth;
+  addToCartButton.classList.add("is-added");
+  bagButton?.classList.add("is-updated");
+  addToCartButton.textContent = "Добавлено ✓";
+
+  addAnimationTimer = window.setTimeout(() => {
+    addToCartButton.classList.remove("is-added");
+    bagButton?.classList.remove("is-updated");
+    addToCartButton.textContent = quantity > 0 ? "Добавить ещё" : "Добавить в корзину";
+  }, 950);
+}
+
+addToCartButton?.addEventListener("click", () => {
+  setQuantity(quantity + 1);
+  playAddAnimation();
+});
 document.querySelector("[data-quantity-plus]")?.addEventListener("click", () => setQuantity(quantity + 1));
 quantityMinus?.addEventListener("click", () => setQuantity(quantity - 1));
 

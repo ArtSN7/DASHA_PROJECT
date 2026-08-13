@@ -8,11 +8,17 @@ const mobileMenu = document.querySelector("[data-mobile-menu]");
 const carousel = document.querySelector("[data-carousel]");
 const carouselCurrent = document.querySelector("[data-carousel-current]");
 const carouselTotal = document.querySelector("[data-carousel-total]");
+const carouselPrev = document.querySelector("[data-carousel-prev]");
+const carouselNext = document.querySelector("[data-carousel-next]");
 const carouselItems = carousel ? [...carousel.querySelectorAll(".collection-item")] : [];
 const toast = document.querySelector("[data-toast]");
 const toastMessage = toast?.querySelector("[data-toast-message]");
 const callbackForm = document.querySelector("[data-callback-form]");
+const callbackOpen = document.querySelector("[data-callback-open]");
 const callbackInput = document.querySelector("[data-callback-input]");
+const callbackName = document.querySelector("[data-callback-name]");
+const callbackMessage = document.querySelector("[data-callback-message]");
+const callbackCount = document.querySelector("[data-callback-count]");
 const callbackLabel = document.querySelector("[data-callback-label]");
 const callbackStatus = document.querySelector("[data-callback-status]");
 const callbackMethods = callbackForm ? [...callbackForm.querySelectorAll('input[name="callback-method"]')] : [];
@@ -22,6 +28,44 @@ let toastTimer;
 let scrollFrame;
 let carouselFrame;
 let carouselIndex = 0;
+let callbackDialog;
+let callbackClose;
+let callbackCloseTimer;
+let callbackReturnFocus;
+
+if (callbackForm && callbackOpen) {
+  callbackDialog = document.createElement("div");
+  const callbackBackdrop = document.createElement("button");
+  callbackClose = document.createElement("button");
+  const callbackTitle = callbackForm.querySelector(".callback-form__head h2");
+
+  callbackDialog.className = "callback-dialog";
+  callbackDialog.hidden = true;
+  callbackDialog.setAttribute("role", "dialog");
+  callbackDialog.setAttribute("aria-modal", "true");
+  callbackDialog.setAttribute("aria-hidden", "true");
+  if (callbackTitle) {
+    callbackTitle.id = "callback-dialog-title";
+    callbackDialog.setAttribute("aria-labelledby", callbackTitle.id);
+  }
+
+  callbackBackdrop.className = "callback-dialog__backdrop";
+  callbackBackdrop.type = "button";
+  callbackBackdrop.tabIndex = -1;
+  callbackBackdrop.setAttribute("aria-label", "Закрыть форму обратной связи");
+
+  callbackClose.className = "callback-dialog__close";
+  callbackClose.type = "button";
+  callbackClose.setAttribute("aria-label", "Закрыть форму обратной связи");
+  callbackClose.innerHTML = "<span></span><span></span>";
+
+  callbackForm.before(callbackDialog);
+  callbackForm.prepend(callbackClose);
+  callbackDialog.append(callbackBackdrop, callbackForm);
+
+  callbackBackdrop.addEventListener("click", () => setCallbackDialog(false));
+  callbackClose.addEventListener("click", () => setCallbackDialog(false));
+}
 
 function setDropdown(open) {
   if (!dropdownButton || !megaMenu) return;
@@ -40,6 +84,31 @@ function setMobileMenu(open) {
   mobileMenu.classList.toggle("is-open", open);
   header.classList.toggle("is-menu-open", open);
   document.body.classList.toggle("menu-open", open);
+}
+
+function setCallbackDialog(open) {
+  if (!callbackDialog || !callbackOpen) return;
+
+  window.clearTimeout(callbackCloseTimer);
+  callbackOpen.setAttribute("aria-expanded", String(open));
+  callbackDialog.setAttribute("aria-hidden", String(!open));
+  document.body.classList.toggle("callback-open", open);
+
+  if (open) {
+    callbackReturnFocus = document.activeElement;
+    callbackDialog.hidden = false;
+    window.requestAnimationFrame(() => {
+      callbackDialog.classList.add("is-open");
+      callbackClose?.focus();
+    });
+    return;
+  }
+
+  callbackDialog.classList.remove("is-open");
+  callbackCloseTimer = window.setTimeout(() => {
+    callbackDialog.hidden = true;
+  }, reducedMotion ? 0 : 480);
+  callbackReturnFocus?.focus?.();
 }
 
 function showToast(message = "Раздел будет доступен в полной версии сайта") {
@@ -162,9 +231,27 @@ document.addEventListener("click", (event) => {
 });
 
 document.addEventListener("keydown", (event) => {
-  if (event.key !== "Escape") return;
-  setDropdown(false);
-  setMobileMenu(false);
+  if (event.key === "Escape") {
+    setDropdown(false);
+    setMobileMenu(false);
+    setCallbackDialog(false);
+    return;
+  }
+
+  if (event.key !== "Tab" || !callbackDialog?.classList.contains("is-open")) return;
+  const focusable = [...callbackDialog.querySelectorAll('button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [href], [tabindex]:not([tabindex="-1"])')]
+    .filter((element) => element.offsetParent !== null);
+  if (!focusable.length) return;
+
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+  if (event.shiftKey && document.activeElement === first) {
+    event.preventDefault();
+    last.focus();
+  } else if (!event.shiftKey && document.activeElement === last) {
+    event.preventDefault();
+    first.focus();
+  }
 });
 
 function getCarouselStep() {
@@ -208,6 +295,10 @@ carousel?.addEventListener(
   { passive: true },
 );
 
+carouselPrev?.addEventListener("click", () => goToCollection(carouselIndex - 1));
+carouselNext?.addEventListener("click", () => goToCollection(carouselIndex + 1));
+callbackOpen?.addEventListener("click", () => setCallbackDialog(true));
+
 document.querySelectorAll(".js-placeholder").forEach((element) => {
   element.addEventListener("click", (event) => {
     event.preventDefault();
@@ -227,15 +318,26 @@ callbackInput?.addEventListener("input", () => {
   if (callbackStatus) callbackStatus.textContent = "";
 });
 
+callbackName?.addEventListener("input", () => {
+  if (callbackStatus) callbackStatus.textContent = "";
+});
+
+callbackMessage?.addEventListener("input", () => {
+  if (callbackCount) callbackCount.textContent = String(callbackMessage.value.length);
+  if (callbackStatus) callbackStatus.textContent = "";
+});
+
 callbackForm?.addEventListener("submit", (event) => {
   event.preventDefault();
   if (!callbackForm.reportValidity()) return;
 
   const method = callbackMethods.find((option) => option.checked)?.value;
+  const name = callbackName?.value.trim();
   if (callbackStatus) {
+    const greeting = name ? `Спасибо, ${name}!` : "Спасибо!";
     callbackStatus.textContent = method === "phone"
-      ? "Спасибо! Мы свяжемся с вами по телефону."
-      : "Спасибо! Мы свяжемся с вами по email.";
+      ? `${greeting} Мы свяжемся с вами по телефону.`
+      : `${greeting} Мы ответим на указанный email.`;
   }
 });
 

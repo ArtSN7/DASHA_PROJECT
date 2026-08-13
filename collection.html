@@ -16,7 +16,7 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&amp;display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=20260810-8" />
+    <link rel="stylesheet" href="styles.css?v=20260814-4" />
   </head>
   <body class="collection-detail-page">
     <a class="skip-link" href="#main">Перейти к содержанию</a>
@@ -41,13 +41,21 @@
       <nav class="desktop-nav desktop-nav--right" aria-label="Дополнительная навигация">
         <a class="nav-link" href="index.html#b2b">B2B</a>
         <a class="nav-link" href="#contact">Контакты</a>
-        <button class="icon-link js-placeholder bag-link" type="button" aria-label="Корзина, 0 товаров">
-          <svg aria-hidden="true" viewBox="0 0 24 24">
-            <path d="M5.5 8.5h13l-1 11h-11l-1-11Z" />
-            <path d="M9 9V6.5a3 3 0 0 1 6 0V9" />
-          </svg>
-          <span>0</span>
-        </button>
+        <div class="header-actions">
+          <a class="icon-link account-link js-placeholder" href="#" aria-label="Личный кабинет" data-toast-message="Личный кабинет будет доступен в полной версии сайта">
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <circle cx="12" cy="8" r="3.25" />
+              <path d="M5.75 19c.45-3.4 2.55-5.25 6.25-5.25S17.8 15.6 18.25 19" />
+            </svg>
+          </a>
+          <button class="icon-link js-placeholder bag-link" type="button" aria-label="Корзина, 0 товаров">
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M5.5 8.5h13l-1 11h-11l-1-11Z" />
+              <path d="M9 9V6.5a3 3 0 0 1 6 0V9" />
+            </svg>
+            <span>0</span>
+          </button>
+        </div>
       </nav>
 
       <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" data-menu-toggle>
@@ -79,6 +87,7 @@
         <a href="about.html"><span>03</span> О нас</a>
         <a href="index.html#b2b"><span>04</span> B2B</a>
         <a href="#contact"><span>05</span> Контакты</a>
+        <a class="js-placeholder" href="#" data-toast-message="Личный кабинет будет доступен в полной версии сайта"><span>06</span> Личный кабинет</a>
       </nav>
       <div class="mobile-menu__foot">
         <a href="tel:+79268635973">+7 (926) 863-59-73</a>
@@ -109,6 +118,36 @@
           <button class="text-cta collection-read-more" type="button" aria-expanded="false" data-story-toggle>
             Читать дальше
           </button>
+        </div>
+      </section>
+
+      <section class="collection-finishes" aria-labelledby="finishes-title" hidden data-collection-finishes>
+        <div class="collection-finishes__intro reveal">
+          <div>
+            <span class="eyebrow">Варианты исполнения</span>
+            <h2 id="finishes-title">Один образ — три характера</h2>
+          </div>
+          <p>Выберите поверхность, которая лучше раскрывает объект в вашем интерьере: от чистой матовой формы до ручной росписи.</p>
+        </div>
+        <div class="collection-finishes__list">
+          <article class="collection-finish reveal">
+            <span>01</span>
+            <i style="--finish-color: #eee6dc" aria-hidden="true"></i>
+            <h3>Бисквит</h3>
+            <p>Матовый неглазурованный фарфор подчёркивает силуэт и мягкую пластику фигуры.</p>
+          </article>
+          <article class="collection-finish reveal" data-delay="1">
+            <span>02</span>
+            <i style="--finish-color: #31547e" aria-hidden="true"></i>
+            <h3>Деколь</h3>
+            <p>Тонкий кобальтовый рисунок добавляет графику, сохраняя спокойствие белой формы.</p>
+          </article>
+          <article class="collection-finish reveal" data-delay="2">
+            <span>03</span>
+            <i style="--finish-color: #783a31" aria-hidden="true"></i>
+            <h3>Ручная роспись</h3>
+            <p>Насыщенный цвет и золотые детали делают каждый экземпляр индивидуальным.</p>
+          </article>
         </div>
       </section>
 
@@ -212,9 +251,43 @@
 
     <footer class="footer" id="contact" aria-label="Контакты Mabon">
       <div class="footer__callback">
+        <div class="footer__contact-cta">
+          <span>Связаться с Mabon</span>
+          <h2>Остались вопросы?</h2>
+          <p>Расскажите, что вас заинтересовало, — мы поможем с выбором, заказом или сотрудничеством.</p>
+          <button class="footer__contact-button" type="button" aria-haspopup="dialog" aria-expanded="false" data-callback-open>
+            Написать нам <span aria-hidden="true">↗</span>
+          </button>
+        </div>
+
         <form class="callback-form" data-callback-form>
+          <div class="callback-form__head">
+            <span>Обратная связь</span>
+            <h2>Расскажите, чем мы можем помочь</h2>
+          </div>
+          <div class="callback-form__fields">
+            <label class="callback-field">
+              <span>Имя</span>
+              <input name="name" type="text" autocomplete="name" placeholder="Как к вам обращаться" required data-callback-name />
+            </label>
+            <label class="callback-field">
+              <span>Тема</span>
+              <select name="topic" required>
+                <option value="">Выберите тему</option>
+                <option value="product">Товар или заказ</option>
+                <option value="delivery">Доставка и оплата</option>
+                <option value="collaboration">Сотрудничество</option>
+                <option value="other">Другой вопрос</option>
+              </select>
+            </label>
+            <label class="callback-field callback-field--wide">
+              <span>Ваш вопрос</span>
+              <textarea name="message" rows="3" maxlength="350" placeholder="Опишите задачу или предмет, который вас заинтересовал" required data-callback-message></textarea>
+              <small><span data-callback-count>0</span> / 350</small>
+            </label>
+          </div>
           <fieldset class="callback-form__methods">
-            <legend>Как с вами связаться?</legend>
+            <legend>Как удобнее ответить?</legend>
             <div>
               <label>
                 <input type="radio" name="callback-method" value="email" checked />
@@ -240,6 +313,10 @@
             />
             <button type="submit">Отправить <span aria-hidden="true">↗</span></button>
           </div>
+          <label class="callback-form__consent">
+            <input type="checkbox" name="privacy" required />
+            <span>Согласен на обработку персональных данных и условия политики конфиденциальности.</span>
+          </label>
           <p class="callback-form__status" role="status" aria-live="polite" data-callback-status></p>
         </form>
 
@@ -285,7 +362,7 @@
       <span data-toast-message>Раздел будет доступен в полной версии сайта</span>
     </div>
 
-    <script src="script.js?v=20260810-3"></script>
-    <script src="collection-page.js?v=20260810-3"></script>
+    <script src="script.js?v=20260814-2"></script>
+    <script src="collection-page.js?v=20260814-1"></script>
   </body>
 </html>

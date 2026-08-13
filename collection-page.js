@@ -51,6 +51,7 @@ const authorName = document.querySelector("[data-author-name]");
 const authorLead = document.querySelector("[data-author-lead]");
 const authorMore = document.querySelector("[data-author-more]");
 const processCopy = document.querySelector("[data-process-copy]");
+const collectionFinishes = document.querySelector("[data-collection-finishes]");
 
 if (collectionTitle) collectionTitle.textContent = collection.title;
 if (collectionLead) collectionLead.textContent = collection.lead;
@@ -59,6 +60,7 @@ if (authorName) authorName.textContent = collection.author;
 if (authorLead) authorLead.textContent = collection.authorLead;
 if (authorMore) authorMore.textContent = collection.authorMore;
 if (processCopy) processCopy.textContent = collection.process;
+if (collectionFinishes) collectionFinishes.hidden = activeCollectionKey !== "winter";
 
 if (collectionHero) {
   collectionHero.src = collection.hero;

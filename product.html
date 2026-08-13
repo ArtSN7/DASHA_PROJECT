@@ -14,7 +14,7 @@
       rel="stylesheet"
     />
     <link rel="preload" as="image" href="assets/product-together-decal.jpg" fetchpriority="high" />
-    <link rel="stylesheet" href="styles.css?v=20260814-1" />
+    <link rel="stylesheet" href="styles.css?v=20260814-4" />
   </head>
   <body class="product-page">
     <a class="skip-link" href="#main">Перейти к содержанию</a>
@@ -37,10 +37,18 @@
       <nav class="desktop-nav desktop-nav--right" aria-label="Дополнительная навигация">
         <a class="nav-link" href="index.html#b2b">B2B</a>
         <a class="nav-link" href="#contact">Контакты</a>
-        <button class="icon-link bag-link" type="button" aria-label="Корзина, 0 товаров" data-bag-button>
-          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5.5 8.5h13l-1 11h-11l-1-11Z" /><path d="M9 9V6.5a3 3 0 0 1 6 0V9" /></svg>
-          <span data-bag-count>0</span>
-        </button>
+        <div class="header-actions">
+          <a class="icon-link account-link js-placeholder" href="#" aria-label="Личный кабинет" data-toast-message="Личный кабинет будет доступен в полной версии сайта">
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <circle cx="12" cy="8" r="3.25" />
+              <path d="M5.75 19c.45-3.4 2.55-5.25 6.25-5.25S17.8 15.6 18.25 19" />
+            </svg>
+          </a>
+          <button class="icon-link bag-link" type="button" aria-label="Корзина, 0 товаров" data-bag-button>
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5.5 8.5h13l-1 11h-11l-1-11Z" /><path d="M9 9V6.5a3 3 0 0 1 6 0V9" /></svg>
+            <span data-bag-count>0</span>
+          </button>
+        </div>
       </nav>
 
       <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" data-menu-toggle>
@@ -68,6 +76,7 @@
         <a href="about.html"><span>03</span> О нас</a>
         <a href="index.html#b2b"><span>04</span> B2B</a>
         <a href="#contact"><span>05</span> Контакты</a>
+        <a class="js-placeholder" href="#" data-toast-message="Личный кабинет будет доступен в полной версии сайта"><span>06</span> Личный кабинет</a>
       </nav>
       <div class="mobile-menu__foot">
         <a href="tel:+79268635973">+7 (926) 863-59-73</a>
@@ -134,7 +143,7 @@
               <small>Срок изготовления — 3–4 недели</small>
             </div>
             <div class="product-purchase__actions">
-              <button class="product-add-button" type="button" data-add-to-cart>Добавить в корзину</button>
+              <button class="product-add-button" type="button" aria-live="polite" data-add-to-cart>Добавить в корзину</button>
               <div class="product-quantity" aria-label="Количество товара">
                 <button type="button" aria-label="Уменьшить количество" data-quantity-minus disabled>−</button>
                 <output aria-live="polite" data-product-quantity>0</output>
@@ -164,14 +173,14 @@
           </div>
         </article>
 
-        <article class="product-disclosure reveal" data-delay="1">
-          <button class="product-disclosure__trigger" type="button" aria-expanded="false" aria-controls="product-inspiration-panel" data-disclosure-trigger>
+        <article class="product-disclosure reveal is-open" data-delay="1">
+          <button class="product-disclosure__trigger" type="button" aria-expanded="true" aria-controls="product-inspiration-panel" data-disclosure-trigger>
             <span class="product-disclosure__icon" aria-hidden="true"></span>
             <strong>Inspiration</strong>
             <span>Фигура в интерьере и примеры размещения</span>
             <svg aria-hidden="true" viewBox="0 0 18 10"><path d="m1 1 8 8 8-8" /></svg>
           </button>
-          <div class="product-disclosure__panel product-inspiration" id="product-inspiration-panel" hidden data-disclosure-panel>
+          <div class="product-disclosure__panel product-inspiration" id="product-inspiration-panel" data-disclosure-panel>
             <div class="product-inspiration__gallery">
               <figure>
                 <img src="assets/product-together-interior-console.jpg" alt="Скульптура Вместе на травертиновой консоли в гостиной" width="1536" height="1024" loading="lazy" />
@@ -196,9 +205,43 @@
 
     <footer class="footer" id="contact" aria-label="Контакты Mabon">
       <div class="footer__callback">
+        <div class="footer__contact-cta">
+          <span>Связаться с Mabon</span>
+          <h2>Остались вопросы?</h2>
+          <p>Расскажите, что вас заинтересовало, — мы поможем с выбором, заказом или сотрудничеством.</p>
+          <button class="footer__contact-button" type="button" aria-haspopup="dialog" aria-expanded="false" data-callback-open>
+            Написать нам <span aria-hidden="true">↗</span>
+          </button>
+        </div>
+
         <form class="callback-form" data-callback-form>
+          <div class="callback-form__head">
+            <span>Обратная связь</span>
+            <h2>Расскажите, чем мы можем помочь</h2>
+          </div>
+          <div class="callback-form__fields">
+            <label class="callback-field">
+              <span>Имя</span>
+              <input name="name" type="text" autocomplete="name" placeholder="Как к вам обращаться" required data-callback-name />
+            </label>
+            <label class="callback-field">
+              <span>Тема</span>
+              <select name="topic" required>
+                <option value="">Выберите тему</option>
+                <option value="product">Товар или заказ</option>
+                <option value="delivery">Доставка и оплата</option>
+                <option value="collaboration">Сотрудничество</option>
+                <option value="other">Другой вопрос</option>
+              </select>
+            </label>
+            <label class="callback-field callback-field--wide">
+              <span>Ваш вопрос</span>
+              <textarea name="message" rows="3" maxlength="350" placeholder="Опишите задачу или предмет, который вас заинтересовал" required data-callback-message></textarea>
+              <small><span data-callback-count>0</span> / 350</small>
+            </label>
+          </div>
           <fieldset class="callback-form__methods">
-            <legend>Как с вами связаться?</legend>
+            <legend>Как удобнее ответить?</legend>
             <div>
               <label><input type="radio" name="callback-method" value="email" checked /><span>Email</span></label>
               <label><input type="radio" name="callback-method" value="phone" /><span>По телефону</span></label>
@@ -209,6 +252,10 @@
             <input id="callback-contact" name="contact" type="email" autocomplete="email" placeholder="Ваш email" required data-callback-input />
             <button type="submit">Отправить <span aria-hidden="true">↗</span></button>
           </div>
+          <label class="callback-form__consent">
+            <input type="checkbox" name="privacy" required />
+            <span>Согласен на обработку персональных данных и условия политики конфиденциальности.</span>
+          </label>
           <p class="callback-form__status" role="status" aria-live="polite" data-callback-status></p>
         </form>
 
@@ -241,7 +288,7 @@
 
     <div class="toast" role="status" aria-live="polite" data-toast><span data-toast-message>Раздел будет доступен в полной версии сайта</span></div>
 
-    <script src="script.js?v=20260810-3"></script>
-    <script src="product-page.js?v=20260813-1"></script>
+    <script src="script.js?v=20260814-2"></script>
+    <script src="product-page.js?v=20260814-1"></script>
   </body>
 </html>
